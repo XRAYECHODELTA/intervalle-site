@@ -129,3 +129,95 @@ h1{
   margin-bottom:20px;
   line-height:1.7;
 }
+/* =========================
+   HERO PREMIUM
+========================= */
+
+.hero{
+  position:relative;
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  overflow:hidden;
+}
+
+/* Halo lumineux */
+.hero::before{
+  content:"";
+  position:absolute;
+  width:900px;
+  height:900px;
+  background:radial-gradient(circle, rgba(198,169,107,0.18), transparent 60%);
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  filter:blur(80px);
+  z-index:0;
+}
+
+/* contenu au dessus */
+.hero *{
+  position:relative;
+  z-index:1;
+}
+
+/* intro */
+.intro{
+  font-size:14px;
+  letter-spacing:1px;
+  margin-bottom:20px;
+  opacity:0.7;
+}
+
+/* titre */
+.hero h1{
+  font-size:110px;
+  font-family:'Cormorant Garamond', serif;
+  letter-spacing:4px;
+  margin:10px 0;
+
+  animation:fadeUp 1.2s ease forwards;
+}
+
+/* sous-texte */
+.subtitle{
+  font-size:18px;
+  max-width:600px;
+  margin:20px auto;
+  opacity:0.8;
+
+  animation:fadeUp 1.6s ease forwards;
+}
+
+/* bouton */
+.btn{
+  margin-top:30px;
+  border:1px solid var(--gold);
+  padding:14px 32px;
+  text-decoration:none;
+  color:var(--text);
+  transition:all 0.3s ease;
+
+  animation:fadeUp 2s ease forwards;
+}
+
+.btn:hover{
+  background:var(--gold);
+  color:white;
+  transform:translateY(-2px);
+}
+
+/* animation */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
