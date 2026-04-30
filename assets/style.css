@@ -13,14 +13,16 @@ body{
   color:var(--text);
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 .main-header{
   position:fixed;
   top:0;
   width:100%;
-  background:rgba(248,246,242,0.9);
-  backdrop-filter:blur(10px);
+  background:rgba(248,246,242,0.85);
+  backdrop-filter:blur(12px);
   border-bottom:1px solid #eae6df;
   z-index:1000;
 }
@@ -59,76 +61,6 @@ body{
   color:var(--gold);
 }
 
-/* HERO */
-
-.hero{
-  height:85vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:0 20px;
-}
-
-.intro{
-  font-size:14px;
-  color:#6b6b6b;
-  margin-bottom:40px;
-  margin-top:20px;
-  max-width:700px;
-  line-height:1.6;
-}
-
-h1{
-  font-family:'Cormorant Garamond', serif;
-  font-size:100px;
-  letter-spacing:2px;
-  margin:10px 0;
-}
-
-.subtitle{
-  font-size:18px;
-  max-width:600px;
-  margin-bottom:40px;
-}
-
-.btn{
-  border:1px solid var(--gold);
-  padding:14px 32px;
-  text-decoration:none;
-  color:var(--text);
-  transition:0.3s;
-}
-
-.btn:hover{
-  background:var(--gold);
-  color:white;
-}
-
-/* STORY */
-
-.story{
-  padding:100px 20px;
-  background:#ffffff;
-  text-align:center;
-}
-
-.story-container{
-  max-width:700px;
-  margin:auto;
-}
-
-.story h2{
-  font-family:'Cormorant Garamond', serif;
-  font-size:40px;
-  margin-bottom:30px;
-}
-
-.story p{
-  margin-bottom:20px;
-  line-height:1.7;
-}
 /* =========================
    HERO PREMIUM
 ========================= */
@@ -144,7 +76,7 @@ h1{
   overflow:hidden;
 }
 
-/* Halo lumineux */
+/* halo luxe */
 .hero::before{
   content:"";
   position:absolute;
@@ -158,21 +90,21 @@ h1{
   z-index:0;
 }
 
-/* contenu au dessus */
 .hero *{
   position:relative;
   z-index:1;
 }
 
-/* intro */
+/* texte intro */
 .intro{
   font-size:14px;
   letter-spacing:1px;
-  margin-bottom:20px;
-  opacity:0.7;
+  opacity:0.6;
+  margin-bottom:25px;
+  max-width:700px;
 }
 
-/* titre */
+/* titre premium */
 .hero h1{
   font-size:110px;
   font-family:'Cormorant Garamond', serif;
@@ -182,12 +114,12 @@ h1{
   animation:fadeUp 1.2s ease forwards;
 }
 
-/* sous-texte */
+/* sous titre */
 .subtitle{
   font-size:18px;
   max-width:600px;
   margin:20px auto;
-  opacity:0.8;
+  opacity:0.75;
 
   animation:fadeUp 1.6s ease forwards;
 }
@@ -210,7 +142,7 @@ h1{
   transform:translateY(-2px);
 }
 
-/* animation */
+/* animation douce */
 @keyframes fadeUp{
   from{
     opacity:0;
@@ -220,4 +152,31 @@ h1{
     opacity:1;
     transform:translateY(0);
   }
+}
+
+/* =========================
+   STORY
+========================= */
+
+.story{
+  padding:120px 20px;
+  background:#ffffff;
+  text-align:center;
+}
+
+.story-container{
+  max-width:700px;
+  margin:auto;
+}
+
+.story h2{
+  font-family:'Cormorant Garamond', serif;
+  font-size:40px;
+  margin-bottom:30px;
+}
+
+.story p{
+  margin-bottom:20px;
+  line-height:1.7;
+  color:#555;
 }
