@@ -8,7 +8,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/style.css">
+<!-- ⚠️ CHEMIN CORRECT -->
+<link rel="stylesheet" href="/assets/style.css">
 </head>
 
 <body>
@@ -29,7 +30,8 @@
     Un espace pour ralentir, comprendre et se réaligner en profondeur.
   </p>
 
-  <a href="pages/accompagnement.html" class="btn">Découvrir</a>
+  <!-- ⚠️ CHEMIN CORRECT -->
+  <a href="/accompagnement.html" class="btn">Découvrir</a>
 
 </section>
 
@@ -59,7 +61,7 @@
 
 <!-- SCRIPT HEADER -->
 <script>
-fetch('components/header.html')
+fetch('/components/header.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('header').innerHTML = data;
