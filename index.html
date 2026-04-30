@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>L’INTERVALLE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header"></div>
+
+<!-- HERO -->
+<section class="hero">
+
+  <p class="intro">
+    Vous êtes-vous déjà dit : « mon corps me lâche » ? Et s’il avait quelque chose à vous dire ?
+  </p>
+
+  <h1>L’INTERVALLE</h1>
+
+  <p class="subtitle">
+    Un espace pour ralentir, comprendre et se réaligner en profondeur.
+  </p>
+
+  <a href="pages/accompagnement.html" class="btn">Découvrir</a>
+
+</section>
+
+<!-- STORY -->
+<section class="story">
+
+  <div class="story-container">
+
+    <h2>Quand le corps parle…</h2>
+
+    <p>
+      Fatigue persistante, douleurs inexpliquées, perte de repères…
+      Parfois, le corps envoie des signaux que l’on ne comprend pas immédiatement.
+    </p>
+
+    <p>
+      L’Intervalle est un espace pour ralentir, écouter, et redonner du sens à ces messages.
+    </p>
+
+    <p>
+      Ici, on ne force pas. On observe, on comprend, et on avance avec justesse.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- SCRIPT HEADER -->
+<script>
+fetch('components/header.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
+  });
+</script>
+
+</body>
+</html>
