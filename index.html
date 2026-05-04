@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L’INTERVALLE — Marie Männlein</title>
+
+<style>
+:root{
+  --bg-main:#e7ded0;
+  --bg-light:#f7f1e8;
+  --bg-dark:#d3c6b5;
+
+  --text:#1b1b1a;
+  --muted:#5c564f;
+
+  --gold:#b8892e;
+
+  --line:rgba(0,0,0,0.06);
+
+  --header-height:82px;
+  --max-width:1180px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 50% 42%, var(--bg-light) 0%, var(--bg-main) 55%, var(--bg-dark) 100%);
+}
+
+/* ===== HEADER ===== */
+.site-header{
+  height:var(--header-height);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:1px solid var(--line);
+  background:rgba(250,247,241,0.7);
+  backdrop-filter:blur(20px);
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:10;
+}
+
+.container{
+  width:100%;
+  max-width:var(--max-width);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 22px;
+}
+
+/* LOGO */
+.logo-text{
+  font-size:13px;
+  letter-spacing:3px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.logo-text:hover{
+  opacity:0.6;
+}
+
+/* NAV */
+.site-nav{
+  display:flex;
+  gap:32px;
+}
+
+.site-nav a{
+  font-size:12.5px;
+  color:var(--muted);
+  text-decoration:none;
+  position:relative;
+  transition:0.3s;
+}
+
+.site-nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:1px;
+  background:var(--gold);
+  transition:0.3s;
+}
+
+.site-nav a:hover{
+  color:var(--text);
+}
+
+.site-nav a:hover::after{
+  width:100%;
+}
+
+/* ===== HERO ===== */
+main{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding-top:var(--header-height);
+}
+
+.hero{
+  max-width:900px;
+  padding:20px;
+
+  /* animation */
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 1s ease;
+}
+
+.hero.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* TITRE */
+.title{
+  font-size:clamp(38px, 6vw, 74px);
+  letter-spacing:clamp(3px, 1vw, 7px);
+  line-height:1.05;
+  margin:0;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.5),
+    0 10px 40px rgba(0,0,0,0.06);
+}
+
+/* DIVIDER */
+.divider{
+  margin:36px 0 14px;
+}
+
+.divider svg{
+  width:clamp(180px, 40vw, 320px);
+  opacity:0.95;
+}
+
+/* SUBTITLE */
+.subtitle{
+  font-size:14px;
+  letter-spacing:1.6px;
+  color:#3e3933;
+  opacity:0.85;
+  margin-bottom:26px;
+}
+
+/* CLAIM */
+.claim{
+  font-size:15px;
+  max-width:420px;
+  margin:0 auto;
+  line-height:1.6;
+  color:var(--muted);
+  opacity:0.9;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+  padding:34px 0 24px;
+  border-top:1px solid var(--line);
+  opacity:0.7;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+
+  .container{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .site-nav{
+    gap:16px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .site-nav a{
+    font-size:11px;
+  }
+
+  .logo-text{
+    font-size:12px;
+  }
+
+  .hero{
+    transform:translateY(0);
+  }
+
+  .claim{
+    font-size:14px;
+    padding:0 10px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container">
+
+    <div class="logo">
+      <span class="logo-text">L’INTERVALLE</span>
+    </div>
+
+    <nav class="site-nav">
+      <a href="/pages/accompagnement.html">Accompagnement</a>
+      <a href="/pages/distance.html">À distance</a>
+      <a href="/pages/contact.html">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+  <div class="hero" id="hero">
+
+    <h1 class="title">L’INTERVALLE</h1>
+
+    <div class="divider">
+      <svg viewBox="0 0 320 34">
+        <line x1="20" y1="17" x2="140" y2="17" stroke="#b8892e"/>
+        <line x1="180" y1="17" x2="300" y2="17" stroke="#b8892e"/>
+
+        <line x1="160" y1="10" x2="160" y2="24" stroke="#b8892e"/>
+        <line x1="152" y1="17" x2="168" y2="17" stroke="#b8892e"/>
+
+        <circle cx="160" cy="17" r="1.6" fill="#e2c98f"/>
+      </svg>
+    </div>
+
+    <div class="subtitle">Marie Männlein</div>
+
+    <div class="claim">
+      Un espace pour ralentir, comprendre et réajuster<br>
+      ce qui cherche à retrouver sa justesse.
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  L’INTERVALLE — Marie Männlein
+</footer>
+
+<script>
+// animation simple au chargement
+window.addEventListener('load', () => {
+  document.getElementById('hero').classList.add('show');
+});
+</script>
+
+</body>
+</html>

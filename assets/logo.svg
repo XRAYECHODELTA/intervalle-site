@@ -1,0 +1,37 @@
+<svg viewBox="0 0 1200 380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e7cf8a"/>
+      <stop offset="50%" stop-color="#caa24a"/>
+      <stop offset="100%" stop-color="#e7cf8a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- TITLE -->
+  <text x="50%" y="130" text-anchor="middle"
+        font-family="Times New Roman, serif"
+        font-size="78"
+        letter-spacing="10"
+        fill="#1a1a1a">
+    L’INTERVALLE
+  </text>
+
+  <!-- LINES -->
+  <line x1="260" y1="190" x2="520" y2="190" stroke="url(#gold)" stroke-width="2"/>
+  <line x1="680" y1="190" x2="940" y2="190" stroke="url(#gold)" stroke-width="2"/>
+
+  <!-- STAR (8 branches propre) -->
+  <g transform="translate(600,190)" fill="url(#gold)">
+    <polygon points="0,-22 4,-6 22,0 4,6 0,22 -4,6 -22,0 -4,-6"/>
+    <polygon points="0,-30 2,-4 30,0 2,4 0,30 -2,4 -30,0 -2,-4"/>
+  </g>
+
+  <!-- SUBTITLE -->
+  <text x="50%" y="265" text-anchor="middle"
+        font-family="Times New Roman, serif"
+        font-size="28"
+        letter-spacing="6"
+        fill="#6b6b6b">
+    Marie Männlein
+  </text>
+</svg>
