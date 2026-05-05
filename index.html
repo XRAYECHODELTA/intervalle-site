@@ -39,7 +39,7 @@ body{
   padding:0 24px;
 }
 
-/* 🔥 LOGO PLUS STATUTAIRE */
+/* ===== LOGO ===== */
 .logo-img{
   height:78px;
 }
@@ -75,22 +75,26 @@ body{
   font-weight:500;
 }
 
-/* 🔥 AXE CENTRAL */
+/* 🔥 AXE CENTRAL (RESPIRATION PREMIUM) */
 .axis{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:18px;
-  margin-top:12px;
+
+  gap:28px; /* 🔥 PLUS D’AIR ENTRE POINT ET NOM */
+  margin-top:26px; /* 🔥 DÉCOLLE DU TITRE */
 }
 
-/* 🔥 POINT PARFAITEMENT ALIGNÉ */
+/* 🔥 POINT AJUSTÉ */
 .gold-dot{
-  width:6px;
-  height:6px;
+  width:5px;
+  height:5px;
   border-radius:50%;
+
   background:radial-gradient(circle,#f3dfb3,#b8892e);
-  box-shadow:0 0 10px rgba(212,175,55,0.6);
+  box-shadow:0 0 12px rgba(212,175,55,0.7);
+
+  margin:6px 0; /* 🔥 RESPIRATION AUTOUR */
 }
 
 /* ===== NOM ===== */
@@ -102,7 +106,7 @@ body{
 
 /* ===== TEXTE ===== */
 .text{
-  margin-top:18px;
+  margin-top:28px; /* 🔥 DÉCOLLAGE GLOBAL */
   max-width:420px;
   font-size:16px;
   line-height:2.1;
@@ -132,8 +136,14 @@ body{
     letter-spacing:0.16em;
   }
 
+  .axis{
+    gap:22px;
+    margin-top:20px;
+  }
+
   .text{
     font-size:14px;
+    margin-top:24px;
   }
 
 }
