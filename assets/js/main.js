@@ -1,13 +1,15 @@
 // ===============================
-// MAIN.JS — VERSION STABLE VERROUILLÉE
+// MAIN.JS — VERSION PROD FIX
 // ===============================
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  const basePath = window.location.origin;
+
   // ===============================
   // LOAD HEADER
   // ===============================
-  fetch("/components/header.html")
+  fetch(basePath + "/components/header.html")
     .then(res => res.text())
     .then(data => {
       const wrapper = document.createElement("div");
@@ -22,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===============================
   // LOAD FOOTER
   // ===============================
-  fetch("/components/footer.html")
+  fetch(basePath + "/components/footer.html")
     .then(res => res.text())
     .then(data => {
       const wrapper = document.createElement("div");
@@ -36,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===============================
   function initHeader() {
     const header = document.querySelector(".site-header");
-
     if (!header) return;
 
     const onScroll = () => {
@@ -48,26 +49,23 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     window.addEventListener("scroll", onScroll);
-    onScroll(); // init immédiat
+    onScroll();
   }
 
   // ===============================
-  // ACTIVE NAV (ROBUSTE)
+  // ACTIVE NAV
   // ===============================
   function setActiveNav() {
     const links = document.querySelectorAll(".site-nav a");
     let path = window.location.pathname;
 
-    // normalisation
     if (path.endsWith("/")) path += "index.html";
     if (path === "/") path = "/index.html";
 
     links.forEach(link => {
       let href = link.getAttribute("href");
-
       if (!href) return;
 
-      // normalisation href
       if (href.endsWith("/")) href += "index.html";
 
       if (path.includes(href)) {
@@ -77,14 +75,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ===============================
-  // ANIMATIONS (ALIGNÉ CSS)
+  // ANIMATIONS
   // ===============================
-  const elements = document.querySelectorAll(
-    ".fade"
-  );
+  const elements = document.querySelectorAll(".fade");
 
   if ("IntersectionObserver" in window) {
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -95,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.15 });
 
     elements.forEach(el => observer.observe(el));
-
   } else {
     elements.forEach(el => el.classList.add("show"));
   }
