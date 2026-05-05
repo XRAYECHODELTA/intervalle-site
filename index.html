@@ -70,6 +70,7 @@ body{
   font-weight:500;
 }
 
+/* ===== AXE CENTRAL AVEC L'ÉTOILE ET LIGNES ===== */
 .axis{
   display:flex;
   flex-direction:column;
@@ -78,59 +79,37 @@ body{
   margin-top:26px;
 }
 
-/* STAR WITH 8 POINTS */
-.star{
-  position: relative;
-  width: 32px;
-  height: 32px;
-  background: transparent;
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px #b8892e, 0 0 5px #b8892e, 0 0 10px #b8892e, 0 0 15px #b8892e;
-  transform: rotate(45deg);
-  margin: 0 20px;
+.star-container {
+  display: flex;
+  align-items: center;
 }
 
-.star::before,
-.star::after {
+.gold-star {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: 2px solid #b8892e;
+  border-radius: 50%;
+  position: relative;
+}
+
+.gold-star:before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 8px;
-  height: 8px;
-  background: #b8892e;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.star::before {
-  width: 4px;
-  height: 4px;
-}
-
-.star::after {
-  width: 16px;
-  height: 16px;
-  opacity: 0.6;
   transform: translate(-50%, -50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background-color: #b8892e;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
-/* LINES */
-.axis::before,
-.axis::after {
-  content: "";
+.gold-line {
   width: 100px;
   height: 2px;
   background-color: #b8892e;
-  position: absolute;
-}
-
-.axis::before {
-  left: -100px;
-}
-
-.axis::after {
-  right: -100px;
+  margin: 0 10px;
 }
 
 .name{
@@ -198,11 +177,14 @@ body{
 </header>
 
 <section class="hero">
-
   <div class="title">L’INTERVALLE</div>
 
   <div class="axis">
-    <div class="star"></div>
+    <div class="star-container">
+      <div class="gold-line"></div>
+      <div class="gold-star"></div>
+      <div class="gold-line"></div>
+    </div>
     <div class="name">MARIE MÄNNLEIN</div>
   </div>
 
