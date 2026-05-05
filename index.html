@@ -85,10 +85,11 @@ body{
 }
 
 .gold-star {
-  width: 72px;
-  height: 72px;
+  width: 24px;
+  height: 24px;
   background-color: transparent;
-  border: none;
+  border: 2px solid #b8892e;
+  border-radius: 50%;
   position: relative;
 }
 
@@ -98,21 +99,21 @@ body{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
-  width: 36px;
-  height: 36px;
+  width: 12px;
+  height: 12px;
   background-color: #b8892e;
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
 .gold-line {
-  width: 160px;
+  width: 100px;
   height: 2px;
   background-color: #b8892e;
   margin: 0 10px;
 }
 
 .name{
-  font-size:18px;
+  font-size:11px;
   letter-spacing:0.5em;
   color:#5c564f;
 }
@@ -125,37 +126,27 @@ body{
   color:#5c564f;
 }
 
-.cta-button {
-  margin-top:40px;
-  padding:12px 36px;
+/* ===== CTA ===== */
+.cta{
+  margin:100px 0 60px;
+  text-align:center;
+}
+
+.cta a{
+  display:inline-block;
+  padding:16px 36px;
   border:1px solid #b8892e;
   color:#b8892e;
-  background-color: transparent;
-  text-decoration: none;
+  text-decoration:none;
   letter-spacing:0.14em;
-  font-size:16px;
-  border-radius:4px;
-  transition: all 0.3s ease;
+  font-size:12px;
+  transition:all 0.35s ease;
 }
 
-.cta-button:hover {
-  background-color: #b8892e;
-  color: white;
-  transform: translateY(-3px);
-}
-
-/* ===== BACKGROUND AND BUTTON STYLES ===== */
-.cta-text {
-  font-size:20px;
-  line-height:1.6;
-  color:#5c564f;
-  background: radial-gradient(circle at 50% 50%, #f7f1e8 0%, #e7ded0 60%, #d3c6b5 100%);
-  padding:20px;
-  border-radius:8px;
-  margin-top:40px;
-  max-width:600px;
-  text-align:center;
-  box-shadow: 0 0 12px rgba(212,175,55,0.5);
+.cta a:hover{
+  background:#b8892e;
+  color:white;
+  transform:translateY(-3px);
 }
 
 @media(max-width:768px){
@@ -187,14 +178,6 @@ body{
   .text{
     font-size:14px;
     margin-top:24px;
-  }
-
-  .cta-button {
-    font-size:14px;
-  }
-
-  .cta-text {
-    font-size:16px;
   }
 }
 
@@ -234,12 +217,10 @@ body{
     et ajuster son équilibre.
   </div>
 
-  <!-- New Text and Button Section -->
-  <div class="cta-text">
-    Un espace pour se reconnecter, explorer ses racines et se réajuster à son rythme.
-  </div>
-  <a href="/pages/contact.html" class="cta-button">Contactez-moi pour en discuter</a>
+</section>
 
+<section class="cta">
+  <a href="/pages/contact.html">Contactez-moi pour en discuter</a>
 </section>
 
 </body>
