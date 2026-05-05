@@ -1,5 +1,5 @@
 // ===============================
-// MAIN.JS — VERSION COMPLETE AVEC HEADER / FOOTER
+// MAIN.JS — VERSION STABLE VERROUILLÉE
 // ===============================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -10,13 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("/components/header.html")
     .then(res => res.text())
     .then(data => {
-      const headerContainer = document.createElement("div");
-      headerContainer.innerHTML = data;
-      document.body.prepend(headerContainer);
+      const wrapper = document.createElement("div");
+      wrapper.innerHTML = data;
+      document.body.prepend(wrapper);
 
-      initHeader(); // important
-      setActiveNav(); // important
-    });
+      initHeader();
+      setActiveNav();
+    })
+    .catch(() => console.error("Header load error"));
 
   // ===============================
   // LOAD FOOTER
@@ -24,10 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("/components/footer.html")
     .then(res => res.text())
     .then(data => {
-      const footerContainer = document.createElement("div");
-      footerContainer.innerHTML = data;
-      document.body.appendChild(footerContainer);
-    });
+      const wrapper = document.createElement("div");
+      wrapper.innerHTML = data;
+      document.body.appendChild(wrapper);
+    })
+    .catch(() => console.error("Footer load error"));
 
   // ===============================
   // HEADER SCROLL
@@ -35,38 +37,50 @@ document.addEventListener("DOMContentLoaded", () => {
   function initHeader() {
     const header = document.querySelector(".site-header");
 
-    if (header) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 30) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
-      });
-    }
+    if (!header) return;
+
+    const onScroll = () => {
+      if (window.scrollY > 30) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+    onScroll(); // init immédiat
   }
 
   // ===============================
-  // ACTIVE NAV
+  // ACTIVE NAV (ROBUSTE)
   // ===============================
   function setActiveNav() {
     const links = document.querySelectorAll(".site-nav a");
-    const current = window.location.pathname;
+    let path = window.location.pathname;
+
+    // normalisation
+    if (path.endsWith("/")) path += "index.html";
+    if (path === "/") path = "/index.html";
 
     links.forEach(link => {
-      const href = link.getAttribute("href");
+      let href = link.getAttribute("href");
 
-      if (href !== "/" && current.includes(href)) {
+      if (!href) return;
+
+      // normalisation href
+      if (href.endsWith("/")) href += "index.html";
+
+      if (path.includes(href)) {
         link.classList.add("active");
       }
     });
   }
 
   // ===============================
-  // ANIMATIONS
+  // ANIMATIONS (ALIGNÉ CSS)
   // ===============================
-  const animatedElements = document.querySelectorAll(
-    ".pillar, .content p, .cta, .hero-small h1, .intro"
+  const elements = document.querySelectorAll(
+    ".fade"
   );
 
   if ("IntersectionObserver" in window) {
@@ -74,23 +88,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
+          entry.target.classList.add("show");
           observer.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.15
-    });
+    }, { threshold: 0.15 });
 
-    animatedElements.forEach(el => {
-      el.classList.add("fade-up");
-      observer.observe(el);
-    });
+    elements.forEach(el => observer.observe(el));
 
   } else {
-    animatedElements.forEach(el => {
-      el.classList.add("visible");
-    });
+    elements.forEach(el => el.classList.add("show"));
   }
 
 });
