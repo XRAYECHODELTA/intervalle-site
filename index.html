@@ -6,6 +6,7 @@
 <title>L’INTERVALLE — Marie Männlein</title>
 
 <style>
+
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -19,13 +20,12 @@ body{
   height:90px;
   display:flex;
   align-items:center;
-  justify-content:flex-start;
+  justify-content:center;
   background:rgba(255,255,255,0.78);
   backdrop-filter:blur(18px);
   position:fixed;
   width:100%;
   top:0;
-  padding-left:30px; /* Plus de marge à gauche pour logo */
 }
 
 .container{
@@ -38,7 +38,7 @@ body{
 }
 
 .logo-img{
-  height:90px; /* Logo plus grand */
+  height:78px;
 }
 
 .site-nav{
@@ -53,6 +53,7 @@ body{
   letter-spacing:0.15em;
 }
 
+/* ===== HERO ===== */
 .hero{
   min-height:100vh;
   display:flex;
@@ -60,7 +61,7 @@ body{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding-top:120px;
+  padding-top:90px;
 }
 
 .title{
@@ -77,12 +78,59 @@ body{
   margin-top:26px;
 }
 
-.gold-dot{
-  width:8px; /* Taille ajustée pour étoile visible */
-  height:8px;
-  border-radius:50%;
-  background:radial-gradient(circle,#f3dfb3,#b8892e);
-  box-shadow:0 0 15px rgba(212,175,55,0.8);
+/* STAR WITH 8 POINTS */
+.star{
+  position: relative;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #b8892e, 0 0 5px #b8892e, 0 0 10px #b8892e, 0 0 15px #b8892e;
+  transform: rotate(45deg);
+  margin: 0 20px;
+}
+
+.star::before,
+.star::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: #b8892e;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.star::before {
+  width: 4px;
+  height: 4px;
+}
+
+.star::after {
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* LINES */
+.axis::before,
+.axis::after {
+  content: "";
+  width: 100px;
+  height: 2px;
+  background-color: #b8892e;
+  position: absolute;
+}
+
+.axis::before {
+  left: -100px;
+}
+
+.axis::after {
+  right: -100px;
 }
 
 .name{
@@ -97,14 +145,6 @@ body{
   font-size:16px;
   line-height:2.1;
   color:#5c564f;
-}
-
-/* Lignes dorées de chaque côté */
-.axis::before, .axis::after{
-  content: "";
-  width: 100px;
-  height: 2px;
-  background-color: #b8892e; /* Lignes dorées */
 }
 
 @media(max-width:768px){
@@ -141,6 +181,7 @@ body{
 
 </style>
 </head>
+
 <body>
 
 <header class="site-header">
@@ -161,7 +202,7 @@ body{
   <div class="title">L’INTERVALLE</div>
 
   <div class="axis">
-    <div class="gold-dot"></div>
+    <div class="star"></div>
     <div class="name">MARIE MÄNNLEIN</div>
   </div>
 
