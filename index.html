@@ -7,47 +7,20 @@
 
 <style>
 
-/* ===== RESET GLOBAL ===== */
-*,
-*::before,
-*::after{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:Georgia,"Times New Roman",serif;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
   color:#1b1b1a;
 
   background:
     radial-gradient(circle at 50% 42%, #f7f1e8 0%, #e7ded0 55%, #d3c6b5 100%);
 }
 
-img{
-  max-width:100%;
-  display:block;
-}
-
-/* ===== VARIABLES ===== */
-:root{
-  --gold:#b8892e;
-  --gold-soft:#e2c98f;
-  --muted:#5c564f;
-
-  --header-height:92px;
-  --max-width:1180px;
-}
-
 /* ===== HEADER ===== */
 .site-header{
-  height:var(--header-height);
+  height:92px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -58,12 +31,11 @@ img{
   position:fixed;
   top:0;
   width:100%;
-  z-index:20;
 }
 
 .container{
   width:100%;
-  max-width:var(--max-width);
+  max-width:1180px;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -71,7 +43,7 @@ img{
 }
 
 .logo-img{
-  height:58px;
+  height:68px; /* 🔥 LOGO PLUS PRÉSENT */
 }
 
 .site-nav{
@@ -82,65 +54,60 @@ img{
 .site-nav a{
   text-decoration:none;
   font-size:12px;
-  color:var(--muted);
+  color:#5c564f;
   letter-spacing:0.14em;
-  position:relative;
-}
-
-.site-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0%;
-  height:1px;
-  background:linear-gradient(90deg,#e6c87f,#b8892e);
-  transition:0.3s;
-}
-
-.site-nav a:hover::after{
-  width:100%;
 }
 
 /* ===== HERO ===== */
-.hero-section{
-  min-height:calc(100vh - var(--header-height));
+.hero{
+  min-height:100vh;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   text-align:center;
-
-  padding:60px 20px 80px;
-  gap:22px;
+  padding-top:92px;
+  gap:28px;
 }
 
 /* ===== TITRE ===== */
-.page-title{
-  font-size:clamp(38px,5vw,76px);
-  letter-spacing:0.16em;
+.title{
+  font-size:clamp(42px,5vw,82px);
+  letter-spacing:0.18em;
   font-weight:500;
 }
 
-/* ===== DIVIDER OR PREMIUM ===== */
-.divider svg{
-  width:340px;
+/* ===== POINT OR (REMPLACE ÉTOILE) ===== */
+.gold-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+
+  background:radial-gradient(circle,#f3dfb3 0%,#b8892e 60%,#8c6a1c 100%);
+  box-shadow:0 0 12px rgba(212,175,55,0.6);
+
+  animation:breath 3.2s ease-in-out infinite;
 }
 
 /* ===== NOM ===== */
-.hero-sub{
+.name{
   font-size:11px;
-  letter-spacing:0.42em;
-  color:var(--muted);
+  letter-spacing:0.45em;
+  color:#5c564f;
 }
 
 /* ===== TEXTE ===== */
-.intro-luxe{
-  margin-top:18px;
-  max-width:460px;
+.text{
+  max-width:420px;
   font-size:16px;
-  line-height:2.05;
-  color:var(--muted);
+  line-height:2;
+  color:#5c564f;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes breath{
+  0%,100%{transform:scale(1);opacity:1;}
+  50%{transform:scale(1.5);opacity:0.7;}
 }
 
 /* ===== MOBILE ===== */
@@ -158,22 +125,14 @@ img{
   }
 
   .logo-img{
-    height:46px;
+    height:52px;
   }
 
-  .hero-section{
-    padding:140px 18px 80px;
+  .title{
+    font-size:32px;
   }
 
-  .page-title{
-    font-size:30px;
-  }
-
-  .divider svg{
-    width:220px;
-  }
-
-  .intro-luxe{
+  .text{
     font-size:14px;
   }
 
@@ -187,11 +146,7 @@ img{
 <header class="site-header">
   <div class="container">
 
-    <div class="logo">
-      <a href="/index.html">
-        <img src="/logo.png" class="logo-img" alt="L'INTERVALLE">
-      </a>
-    </div>
+    <img src="/logo.png" class="logo-img">
 
     <nav class="site-nav">
       <a href="/pages/accompagnement.html">Accompagnement</a>
@@ -204,69 +159,22 @@ img{
   </div>
 </header>
 
-<main>
+<section class="hero">
 
-<section class="hero-section">
+  <div class="title">L’INTERVALLE</div>
 
-  <h1 class="page-title">L’INTERVALLE</h1>
+  <!-- 🔥 POINT OR PREMIUM -->
+  <div class="gold-dot"></div>
 
-  <div class="divider">
-    <svg viewBox="0 0 320 34">
+  <div class="name">MARIE MÄNNLEIN</div>
 
-      <defs>
-        <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%">
-          <stop offset="0%" stop-color="#e6c87f"/>
-          <stop offset="50%" stop-color="#b8892e"/>
-          <stop offset="100%" stop-color="#f3dfb3"/>
-        </linearGradient>
-
-        <radialGradient id="goldGlow">
-          <stop offset="0%" stop-color="#f3dfb3" stop-opacity="1"/>
-          <stop offset="100%" stop-color="#b8892e" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-
-      <!-- lignes -->
-      <line x1="10" y1="17" x2="140" y2="17"
-        stroke="url(#goldGradient)" stroke-width="1.2"/>
-
-      <line x1="180" y1="17" x2="310" y2="17"
-        stroke="url(#goldGradient)" stroke-width="1.2"/>
-
-      <!-- étoile -->
-      <g transform="translate(160,17)">
-
-        <circle r="10" fill="url(#goldGlow)" opacity="0.6">
-          <animate attributeName="r" values="8;14;8" dur="3s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/>
-        </circle>
-
-        <line x1="-7" y1="0" x2="7" y2="0"
-          stroke="url(#goldGradient)" stroke-width="1.6"/>
-
-        <line x1="0" y1="-7" x2="0" y2="7"
-          stroke="url(#goldGradient)" stroke-width="1.6"/>
-
-        <circle r="2.6" fill="url(#goldGradient)">
-          <animate attributeName="r" values="2.6;3.4;2.6" dur="2.2s" repeatCount="indefinite"/>
-        </circle>
-
-      </g>
-
-    </svg>
-  </div>
-
-  <p class="hero-sub">MARIE MÄNNLEIN</p>
-
-  <div class="intro-luxe">
+  <div class="text">
     Un espace pour se reconnecter à soi,<br>
     explorer ses racines<br>
     et ajuster son équilibre.
   </div>
 
 </section>
-
-</main>
 
 </body>
 </html>
