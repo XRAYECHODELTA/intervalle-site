@@ -40,7 +40,7 @@ img, video{
   --bg-light:#f7f1e8;
   --bg-dark:#d3c6b5;
 
-  --header-height:86px;
+  --header-height:90px;
   --max-width:1180px;
 }
 
@@ -85,7 +85,7 @@ main{
   box-shadow:0 10px 30px rgba(0,0,0,0.06);
 }
 
-/* ===== LOGO IMAGE ===== */
+/* ===== LOGO FINAL ===== */
 .logo{
   display:flex;
   align-items:center;
@@ -97,7 +97,7 @@ main{
 }
 
 .logo-img{
-  height:42px;
+  height:56px;
   width:auto;
   display:block;
   object-fit:contain;
@@ -105,7 +105,7 @@ main{
 }
 
 .logo-img:hover{
-  opacity:0.8;
+  opacity:0.85;
   transform:translateY(-1px);
 }
 
@@ -344,7 +344,7 @@ footer{
   }
 
   .logo-img{
-    height:34px;
+    height:40px;
   }
 
 }
@@ -359,19 +359,4 @@ footer{
 .fade.show{
   opacity:1;
   transform:translateY(0);
-}
-/* ===== LOGO IMAGE FIX ===== */
-.logo-img{
-  height:42px;
-  width:auto;
-  display:block;
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-}
-
-.site-header .container{
-  align-items:center;
 }
