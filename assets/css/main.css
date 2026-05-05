@@ -360,3 +360,18 @@ footer{
   opacity:1;
   transform:translateY(0);
 }
+/* ===== LOGO IMAGE FIX ===== */
+.logo-img{
+  height:42px;
+  width:auto;
+  display:block;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+}
+
+.site-header .container{
+  align-items:center;
+}
