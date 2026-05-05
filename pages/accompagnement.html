@@ -6,8 +6,7 @@
 <title>Accompagnement — L’INTERVALLE</title>
 
 <style>
-
-/* ===== RESET ===== */
+/* RESET STYLES */
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -17,7 +16,7 @@ body{
     radial-gradient(circle at 50% 42%, #f7f1e8 0%, #e7ded0 55%, #d3c6b5 100%);
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .site-header{
   height:90px;
   display:flex;
@@ -32,14 +31,17 @@ body{
 
 .container{
   width:100%;
-  max-width:1040px; /* 🔥 Resserre un peu plus */
+  max-width:1040px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:0 24px;
 }
 
-.logo-img{height:70px;}
+.logo-img{
+  height:70px;
+  cursor: pointer; /* Changer le curseur au survol */
+}
 
 .site-nav{
   display:flex;
@@ -53,17 +55,17 @@ body{
   letter-spacing:0.15em;
 }
 
-/* ===== PAGE ===== */
+/* PAGE */
 .page{
-  padding-top:120px; /* Resserre encore */
-  max-width:950px; /* Taille plus serrée */
+  padding-top:120px;
+  max-width:950px;
   margin:auto;
   text-align:center;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
-  margin-bottom:60px; /* Moins d'espace entre hero et sections */
+  margin-bottom:60px;
   text-align:center;
 }
 
@@ -81,9 +83,9 @@ body{
   color:#5c564f;
 }
 
-/* ===== SECTIONS ===== */
+/* SECTIONS */
 .section{
-  margin:50px 0; /* 🔥 Réduit l'espacement sans perdre de lisibilité */
+  margin:50px 0;
 }
 
 .section::before{
@@ -112,7 +114,7 @@ body{
   text-align:center;
 }
 
-/* ===== CTA ===== */
+/* CTA */
 .cta{
   margin:100px 0 60px;
   text-align:center;
@@ -135,9 +137,8 @@ body{
   transform:translateY(-3px);
 }
 
-/* ===== MOBILE ===== */
+/* MOBILE */
 @media(max-width:768px){
-
   .container{
     flex-direction:column;
     gap:8px;
@@ -158,9 +159,7 @@ body{
   .section-title{
     text-align:center;
   }
-
 }
-
 </style>
 </head>
 
@@ -168,7 +167,8 @@ body{
 
 <header class="site-header">
   <div class="container">
-    <img src="/logo.png" class="logo-img">
+    <!-- Logo cliquable redirige vers index -->
+    <a href="/index.html"><img src="/logo.png" class="logo-img" alt="L’INTERVALLE"></a>
     <nav class="site-nav">
       <a href="/pages/accompagnement.html">Accompagnement</a>
       <a href="/pages/entreprises.html">Entreprises</a>
@@ -180,7 +180,6 @@ body{
 </header>
 
 <main class="page">
-
   <section class="hero">
     <div class="title">Un espace pour être accompagné</div>
     <div class="subtitle">
@@ -214,7 +213,6 @@ body{
   <section class="cta">
     <a href="/pages/contact.html">Prendre rendez-vous</a>
   </section>
-
 </main>
 
 </body>
