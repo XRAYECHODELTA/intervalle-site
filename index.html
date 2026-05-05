@@ -42,6 +42,12 @@ body{
 /* ===== LOGO ===== */
 .logo-img{
   height:78px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logo-img:hover{
+  transform: scale(1.05);
 }
 
 /* ===== NAV ===== */
@@ -80,7 +86,6 @@ body{
   display:flex;
   flex-direction:column;
   align-items:center;
-
   gap:28px; /* 🔥 PLUS D’AIR ENTRE POINT ET NOM */
   margin-top:26px; /* 🔥 DÉCOLLE DU TITRE */
 }
@@ -90,10 +95,8 @@ body{
   width:5px;
   height:5px;
   border-radius:50%;
-
   background:radial-gradient(circle,#f3dfb3,#b8892e);
   box-shadow:0 0 12px rgba(212,175,55,0.7);
-
   margin:6px 0; /* 🔥 RESPIRATION AUTOUR */
 }
 
@@ -155,7 +158,7 @@ body{
 
 <header class="site-header">
   <div class="container">
-    <img src="/logo.png" class="logo-img">
+    <a href="/index.html"><img src="/logo.png" class="logo-img"></a> <!-- Lien vers la page d'accueil -->
     <nav class="site-nav">
       <a href="/pages/accompagnement.html">Accompagnement</a>
       <a href="/pages/entreprises.html">Entreprises</a>

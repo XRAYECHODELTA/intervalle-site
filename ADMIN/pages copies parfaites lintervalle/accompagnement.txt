@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accompagnement — L’INTERVALLE</title>
+
+<style>
+
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  color:#1b1b1a;
+  background:
+    radial-gradient(circle at 50% 42%, #f7f1e8 0%, #e7ded0 55%, #d3c6b5 100%);
+}
+
+/* ===== HEADER ===== */
+.site-header{
+  height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,0.78);
+  backdrop-filter:blur(18px);
+  position:fixed;
+  width:100%;
+  top:0;
+}
+
+.container{
+  width:100%;
+  max-width:1040px; /* 🔥 Resserre un peu plus */
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 24px;
+}
+
+.logo-img{height:70px;}
+
+.site-nav{
+  display:flex;
+  gap:36px;
+}
+
+.site-nav a{
+  text-decoration:none;
+  font-size:12px;
+  color:#5c564f;
+  letter-spacing:0.15em;
+}
+
+/* ===== PAGE ===== */
+.page{
+  padding-top:120px; /* Resserre encore */
+  max-width:950px; /* Taille plus serrée */
+  margin:auto;
+  text-align:center;
+}
+
+/* ===== HERO ===== */
+.hero{
+  margin-bottom:60px; /* Moins d'espace entre hero et sections */
+  text-align:center;
+}
+
+.title{
+  font-size:clamp(36px,4vw,48px);
+  letter-spacing:0.14em;
+  margin-bottom:32px;
+}
+
+.subtitle{
+  max-width:500px;
+  margin:auto;
+  font-size:17px;
+  line-height:2.1;
+  color:#5c564f;
+}
+
+/* ===== SECTIONS ===== */
+.section{
+  margin:50px 0; /* 🔥 Réduit l'espacement sans perdre de lisibilité */
+}
+
+.section::before{
+  content: "★";
+  font-size:24px;
+  color:#b8892e;
+  display:block;
+  text-align:center;
+  margin:10px 0;
+  letter-spacing:4px;
+}
+
+.section-title{
+  font-size:22px;
+  letter-spacing:0.14em;
+  margin-bottom:22px;
+  text-align:center;
+}
+
+.section-text{
+  max-width:580px;
+  margin:auto;
+  font-size:16px;
+  line-height:2.2;
+  color:#5c564f;
+  text-align:center;
+}
+
+/* ===== CTA ===== */
+.cta{
+  margin:100px 0 60px;
+  text-align:center;
+}
+
+.cta a{
+  display:inline-block;
+  padding:16px 36px;
+  border:1px solid #b8892e;
+  color:#b8892e;
+  text-decoration:none;
+  letter-spacing:0.14em;
+  font-size:12px;
+  transition:all 0.35s ease;
+}
+
+.cta a:hover{
+  background:#b8892e;
+  color:white;
+  transform:translateY(-3px);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+
+  .container{
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .site-nav{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
+
+  .logo-img{height:52px;}
+
+  .title{font-size:28px;}
+  .subtitle{font-size:15px;}
+  .section-text{font-size:15px;}
+
+  .section-title{
+    text-align:center;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <img src="/logo.png" class="logo-img">
+    <nav class="site-nav">
+      <a href="/pages/accompagnement.html">Accompagnement</a>
+      <a href="/pages/entreprises.html">Entreprises</a>
+      <a href="/pages/distance.html">À distance</a>
+      <a href="/pages/histoire.html">L’INTERVALLE</a>
+      <a href="/pages/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="hero">
+    <div class="title">Un espace pour être accompagné</div>
+    <div class="subtitle">
+      Un espace pour déposer, comprendre et transformer <strong>ce qui se joue en vous, à votre rythme.</strong>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Un travail en profondeur</div>
+    <div class="section-text">
+      Chaque accompagnement s’inscrit dans une démarche d’écoute, de présence et de compréhension de votre histoire personnelle.
+      Il ne s’agit pas d’appliquer des solutions, mais d’explorer ce qui cherche à émerger.
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Une approche ancrée</div>
+    <div class="section-text">
+      Le travail s’appuie sur le corps, la parole et la mémoire.
+      Il permet de remettre du mouvement là où quelque chose s’est figé.
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Pour qui</div>
+    <div class="section-text">
+      Pour toute personne en transition, en questionnement ou en recherche d’un espace pour se retrouver.
+    </div>
+  </section>
+
+  <section class="cta">
+    <a href="/pages/contact.html">Prendre rendez-vous</a>
+  </section>
+
+</main>
+
+</body>
+</html>
