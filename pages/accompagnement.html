@@ -55,14 +55,14 @@ body{
 
 /* ===== PAGE ===== */
 .page{
-  padding-top:120px;
-  max-width:1020px; /* 🔥 Taille un peu plus resserrée */
+  padding-top:150px;
+  max-width:1100px; /* Taille plus serrée sur PC */
   margin:auto;
 }
 
 /* ===== HERO ===== */
 .hero{
-  margin-bottom:100px; /* 🔥 Un peu plus compact */
+  margin-bottom:100px;
   text-align:center;
 }
 
@@ -82,19 +82,30 @@ body{
 
 /* ===== SECTIONS ===== */
 .section{
-  margin:90px 0; /* 🔥 Réduit l'écart entre les sections */
+  margin:90px 0; /* Espacement modéré entre les sections */
 }
 
+/* ===== STARS BETWEEN SECTIONS ===== */
+.section::before{
+  content: "★";
+  font-size:24px;
+  color:#b8892e;
+  display:block;
+  text-align:center;
+  margin:10px 0;
+  letter-spacing:4px;
+}
+
+/* ===== TITRE ET TEXTE ===== */
 .section-title{
   font-size:22px;
   letter-spacing:0.14em;
   margin-bottom:22px;
-  text-align:left;
-  margin-left:60px;
+  text-align:center; /* Centré */
 }
 
 .section-text{
-  max-width:600px; /* 🔥 Limite la largeur du texte */
+  max-width:600px;
   margin:auto;
   font-size:17px;
   line-height:2.2;
@@ -146,7 +157,6 @@ body{
 
   .section-title{
     text-align:center;
-    margin-left:0;
   }
 
 }
