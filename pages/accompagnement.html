@@ -32,7 +32,7 @@ body{
 
 .container{
   width:100%;
-  max-width:1020px; /* Taille encore plus serrée */
+  max-width:1180px; /* Plus serré */
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -56,25 +56,25 @@ body{
 /* ===== PAGE ===== */
 .page{
   padding-top:150px;
-  max-width:950px; /* Un peu plus compact */
+  max-width:1100px; /* Taille plus serrée */
   margin:auto;
-  text-align:center; /* Centrage général */
+  text-align:center; /* Centré */
 }
 
 /* ===== HERO ===== */
 .hero{
-  margin-bottom:80px;
+  margin-bottom:100px;
   text-align:center;
 }
 
 .title{
-  font-size:clamp(36px,4vw,48px); /* Ajustement de taille */
+  font-size:clamp(36px,4vw,52px); /* Ajustement de taille */
   letter-spacing:0.14em;
   margin-bottom:32px;
 }
 
 .subtitle{
-  max-width:500px;
+  max-width:520px;
   margin:auto;
   font-size:17px;
   line-height:2.1;
@@ -86,6 +86,16 @@ body{
   margin:70px 0; /* Espacement réduit */
 }
 
+.section::before{
+  content: "★";
+  font-size:24px;
+  color:#b8892e;
+  display:block;
+  text-align:center;
+  margin:10px 0;
+  letter-spacing:4px;
+}
+
 .section-title{
   font-size:22px;
   letter-spacing:0.14em;
@@ -94,7 +104,7 @@ body{
 }
 
 .section-text{
-  max-width:580px; /* Taille texte un peu plus serrée */
+  max-width:600px;
   margin:auto;
   font-size:16px;
   line-height:2.2;
@@ -104,7 +114,7 @@ body{
 
 /* ===== CTA ===== */
 .cta{
-  margin:100px 0 60px;
+  margin:120px 0 80px;
   text-align:center;
 }
 
