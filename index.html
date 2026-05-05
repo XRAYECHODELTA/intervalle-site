@@ -6,7 +6,6 @@
 <title>L’INTERVALLE — Marie Männlein</title>
 
 <style>
-
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -20,12 +19,13 @@ body{
   height:90px;
   display:flex;
   align-items:center;
-  justify-content:center;
+  justify-content:flex-start;
   background:rgba(255,255,255,0.78);
   backdrop-filter:blur(18px);
   position:fixed;
   width:100%;
   top:0;
+  padding-left:30px; /* Plus de marge à gauche pour logo */
 }
 
 .container{
@@ -38,8 +38,7 @@ body{
 }
 
 .logo-img{
-  height:78px;
-  cursor: pointer; /* Ajout du curseur pour la souris sur le logo */
+  height:90px; /* Logo plus grand */
 }
 
 .site-nav{
@@ -54,7 +53,6 @@ body{
   letter-spacing:0.15em;
 }
 
-/* ===== HERO ===== */
 .hero{
   min-height:100vh;
   display:flex;
@@ -62,8 +60,7 @@ body{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding-top:90px;
-  position:relative; /* Pour garantir que les éléments enfants soient bien alignés */
+  padding-top:120px;
 }
 
 .title{
@@ -78,17 +75,14 @@ body{
   align-items:center;
   gap:28px;
   margin-top:26px;
-  position:relative;
 }
 
 .gold-dot{
-  width:7px;
-  height:7px;
+  width:8px; /* Taille ajustée pour étoile visible */
+  height:8px;
   border-radius:50%;
   background:radial-gradient(circle,#f3dfb3,#b8892e);
-  box-shadow:0 0 12px rgba(212,175,55,0.7);
-  margin:6px 0;
-  position:absolute;
+  box-shadow:0 0 15px rgba(212,175,55,0.8);
 }
 
 .name{
@@ -105,15 +99,12 @@ body{
   color:#5c564f;
 }
 
-/* ===== SECTION - STARS BETWEEN SECTIONS ===== */
-.section::before{
-  content: "★";
-  font-size:28px;
-  color:#b8892e;
-  display:block;
-  text-align:center;
-  margin:20px 0;
-  letter-spacing:4px;
+/* Lignes dorées de chaque côté */
+.axis::before, .axis::after{
+  content: "";
+  width: 100px;
+  height: 2px;
+  background-color: #b8892e; /* Lignes dorées */
 }
 
 @media(max-width:768px){
@@ -150,7 +141,6 @@ body{
 
 </style>
 </head>
-
 <body>
 
 <header class="site-header">
@@ -167,16 +157,20 @@ body{
 </header>
 
 <section class="hero">
+
   <div class="title">L’INTERVALLE</div>
+
   <div class="axis">
     <div class="gold-dot"></div>
     <div class="name">MARIE MÄNNLEIN</div>
   </div>
+
   <div class="text">
     Un espace pour se reconnecter à soi,<br>
     explorer ses racines<br>
     et ajuster son équilibre.
   </div>
+
 </section>
 
 </body>
