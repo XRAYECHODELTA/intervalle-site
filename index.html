@@ -65,12 +65,11 @@ body{
 }
 
 .title{
-  font-size:clamp(44px,5vw,88px);
+  font-size:clamp(36px,4vw,72px); /* Réduit la taille de L'INTERVALLE */
   letter-spacing:0.20em;
   font-weight:500;
 }
 
-/* ===== AXE CENTRAL AVEC L'ÉTOILE MODIFIÉE ===== */
 .axis{
   display:flex;
   flex-direction:column;
@@ -85,10 +84,10 @@ body{
 }
 
 .gold-star {
-  width: 72px; /* L'étoile est maintenant trois fois plus grande */
+  width: 72px;
   height: 72px;
   background-color: transparent;
-  border: none; /* Enlevé le cercle autour de l'étoile */
+  border: none;
   position: relative;
 }
 
@@ -98,21 +97,21 @@ body{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
-  width: 36px; /* L'étoile est maintenant trois fois plus grande */
+  width: 36px;
   height: 36px;
   background-color: #b8892e;
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
 .gold-line {
-  width: 160px; /* Lignes dorées allongées */
+  width: 160px;
   height: 2px;
   background-color: #b8892e;
   margin: 0 10px;
 }
 
 .name{
-  font-size:11px;
+  font-size:18px; /* Agrandit Marie Männlein */
   letter-spacing:0.5em;
   color:#5c564f;
 }
