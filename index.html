@@ -6,6 +6,119 @@
 <title>L’INTERVALLE — Marie Männlein</title>
 
 <link rel="stylesheet" href="/assets/css/main.css">
+
+<style>
+
+/* ===== HERO PREMIUM ===== */
+.hero-section{
+  min-height:calc(100vh - var(--header-height));
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:80px 20px 100px;
+  gap:28px;
+}
+
+/* ===== TITRE ===== */
+.page-title{
+  font-size:clamp(38px,5vw,64px);
+  letter-spacing:0.08em;
+  font-weight:500;
+}
+
+/* ===== DIVIDER PREMIUM ===== */
+.divider{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin:10px 0 18px;
+}
+
+.divider svg{
+  width:320px;
+  height:auto;
+  overflow:visible;
+}
+
+/* lignes */
+.divider line{
+  stroke:var(--gold);
+  stroke-width:1;
+  opacity:0.6;
+}
+
+/* ===== ÉTOILE LUXE ===== */
+.star-core{
+  fill:var(--gold-soft);
+  filter:drop-shadow(0 0 6px rgba(212,175,55,0.6));
+  animation:starPulse 2.6s ease-in-out infinite;
+}
+
+.star-cross{
+  stroke:var(--gold);
+  stroke-width:1.2;
+  opacity:0.9;
+}
+
+/* halo animé */
+.star-glow{
+  fill:transparent;
+  stroke:var(--gold-soft);
+  stroke-width:0.6;
+  opacity:0.4;
+  animation:halo 3s ease-in-out infinite;
+}
+
+/* animations */
+@keyframes starPulse{
+  0%,100%{ transform:scale(1); opacity:1;}
+  50%{ transform:scale(1.25); opacity:0.85;}
+}
+
+@keyframes halo{
+  0%{ transform:scale(1); opacity:0.4;}
+  50%{ transform:scale(1.6); opacity:0;}
+  100%{ transform:scale(1); opacity:0.4;}
+}
+
+/* ===== NOM ===== */
+.hero-sub{
+  font-size:14px;
+  letter-spacing:0.25em;
+  color:var(--muted);
+  margin-top:6px;
+}
+
+/* ===== TEXTE ===== */
+.intro-luxe{
+  max-width:560px;
+  font-size:18px;
+  line-height:1.9;
+  color:var(--text);
+  margin-top:10px;
+}
+
+/* ===== LOGO HEADER BOOST ===== */
+.logo-img{
+  height:54px;
+  transition:all 0.4s ease;
+}
+
+.logo-img:hover{
+  transform:scale(1.05);
+  opacity:0.9;
+}
+
+/* ===== RESPIRATION HEADER ===== */
+.site-header{
+  backdrop-filter:blur(6px);
+  background:rgba(250,248,244,0.85);
+}
+
+</style>
+
 </head>
 
 <body>
@@ -33,19 +146,35 @@
 <main class="page">
 
   <section class="hero-section">
+
     <h1 class="page-title">L’INTERVALLE</h1>
 
     <div class="divider">
       <svg viewBox="0 0 320 34">
-        <line x1="20" y1="17" x2="140" y2="17" stroke="#b8892e"/>
-        <line x1="180" y1="17" x2="300" y2="17" stroke="#b8892e"/>
-        <line x1="160" y1="10" x2="160" y2="24" stroke="#b8892e"/>
-        <line x1="152" y1="17" x2="168" y2="17" stroke="#b8892e"/>
-        <circle cx="160" cy="17" r="1.6" fill="#e2c98f"/>
+
+        <!-- lignes -->
+        <line x1="20" y1="17" x2="140" y2="17"/>
+        <line x1="180" y1="17" x2="300" y2="17"/>
+
+        <!-- étoile luxe -->
+        <g transform="translate(160,17)">
+
+          <!-- halo -->
+          <circle class="star-glow" r="8"/>
+
+          <!-- croix -->
+          <line class="star-cross" x1="-6" y1="0" x2="6" y2="0"/>
+          <line class="star-cross" x1="0" y1="-6" x2="0" y2="6"/>
+
+          <!-- noyau -->
+          <circle class="star-core" r="2"/>
+
+        </g>
+
       </svg>
     </div>
 
-    <p class="hero-sub">Marie Männlein</p>
+    <p class="hero-sub">MARIE MÄNNLEIN</p>
 
     <div class="intro-luxe">
       Un espace pour ralentir, comprendre et réajuster<br>
