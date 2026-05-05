@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L’INTERVALLE — Marie Männlein</title>
+
+<style>
+
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  color:#1b1b1a;
+  background:
+    radial-gradient(circle at 50% 42%, #f7f1e8 0%, #e7ded0 55%, #d3c6b5 100%);
+}
+
+/* ===== HEADER ===== */
+.site-header{
+  height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,0.78);
+  backdrop-filter:blur(18px);
+  position:fixed;
+  width:100%;
+  top:0;
+}
+
+.container{
+  width:100%;
+  max-width:1180px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 24px;
+}
+
+/* ===== LOGO ===== */
+.logo-img{
+  height:78px;
+}
+
+/* ===== NAV ===== */
+.site-nav{
+  display:flex;
+  gap:36px;
+}
+
+.site-nav a{
+  text-decoration:none;
+  font-size:12px;
+  color:#5c564f;
+  letter-spacing:0.15em;
+}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding-top:90px;
+}
+
+/* ===== TITRE ===== */
+.title{
+  font-size:clamp(44px,5vw,88px);
+  letter-spacing:0.20em;
+  font-weight:500;
+}
+
+/* 🔥 AXE CENTRAL (RESPIRATION PREMIUM) */
+.axis{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  gap:28px; /* 🔥 PLUS D’AIR ENTRE POINT ET NOM */
+  margin-top:26px; /* 🔥 DÉCOLLE DU TITRE */
+}
+
+/* 🔥 POINT AJUSTÉ */
+.gold-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+
+  background:radial-gradient(circle,#f3dfb3,#b8892e);
+  box-shadow:0 0 12px rgba(212,175,55,0.7);
+
+  margin:6px 0; /* 🔥 RESPIRATION AUTOUR */
+}
+
+/* ===== NOM ===== */
+.name{
+  font-size:11px;
+  letter-spacing:0.5em;
+  color:#5c564f;
+}
+
+/* ===== TEXTE ===== */
+.text{
+  margin-top:28px; /* 🔥 DÉCOLLAGE GLOBAL */
+  max-width:420px;
+  font-size:16px;
+  line-height:2.1;
+  color:#5c564f;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+
+  .container{
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .site-nav{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
+
+  .logo-img{
+    height:58px;
+  }
+
+  .title{
+    font-size:32px;
+    letter-spacing:0.16em;
+  }
+
+  .axis{
+    gap:22px;
+    margin-top:20px;
+  }
+
+  .text{
+    font-size:14px;
+    margin-top:24px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <img src="/logo.png" class="logo-img">
+    <nav class="site-nav">
+      <a href="/pages/accompagnement.html">Accompagnement</a>
+      <a href="/pages/entreprises.html">Entreprises</a>
+      <a href="/pages/distance.html">À distance</a>
+      <a href="/pages/histoire.html">L’INTERVALLE</a>
+      <a href="/pages/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+
+  <div class="title">L’INTERVALLE</div>
+
+  <div class="axis">
+    <div class="gold-dot"></div>
+    <div class="name">MARIE MÄNNLEIN</div>
+  </div>
+
+  <div class="text">
+    Un espace pour se reconnecter à soi,<br>
+    explorer ses racines<br>
+    et ajuster son équilibre.
+  </div>
+
+</section>
+
+</body>
+</html>

@@ -3,145 +3,208 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Accompagnement — L’INTERVALLE</title>
 
-<link rel="stylesheet" href="../assets/css/main.css">
+<style>
+
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  color:#1b1b1a;
+  background:
+    radial-gradient(circle at 50% 42%, #f7f1e8 0%, #e7ded0 55%, #d3c6b5 100%);
+}
+
+/* ===== HEADER ===== */
+.site-header{
+  height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,0.78);
+  backdrop-filter:blur(18px);
+  position:fixed;
+  width:100%;
+  top:0;
+}
+
+.container{
+  width:100%;
+  max-width:1180px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 24px;
+}
+
+.logo-img{
+  height:70px;
+}
+
+.site-nav{
+  display:flex;
+  gap:36px;
+}
+
+.site-nav a{
+  text-decoration:none;
+  font-size:12px;
+  color:#5c564f;
+  letter-spacing:0.15em;
+}
+
+/* ===== PAGE ===== */
+.page{
+  padding-top:120px;
+  max-width:860px;
+  margin:auto;
+  text-align:center;
+}
+
+/* ===== HERO ===== */
+.hero{
+  margin-bottom:80px;
+}
+
+.title{
+  font-size:clamp(34px,4vw,52px);
+  letter-spacing:0.12em;
+  margin-bottom:24px;
+}
+
+.subtitle{
+  max-width:540px;
+  margin:auto;
+  font-size:17px;
+  line-height:2;
+  color:#5c564f;
+}
+
+/* ===== BLOCS ===== */
+.section{
+  margin:80px 0;
+}
+
+.section-title{
+  font-size:22px;
+  letter-spacing:0.12em;
+  margin-bottom:20px;
+}
+
+.section-text{
+  max-width:540px;
+  margin:auto;
+  font-size:16px;
+  line-height:2;
+  color:#5c564f;
+}
+
+/* ===== CTA ===== */
+.cta{
+  margin-top:100px;
+}
+
+.cta a{
+  display:inline-block;
+  padding:14px 26px;
+  border:1px solid #b8892e;
+  color:#b8892e;
+  text-decoration:none;
+  letter-spacing:0.12em;
+  font-size:12px;
+  transition:0.3s;
+}
+
+.cta a:hover{
+  background:#b8892e;
+  color:white;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+
+  .container{
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .site-nav{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
+
+  .logo-img{
+    height:52px;
+  }
+
+  .title{
+    font-size:28px;
+  }
+
+  .subtitle{
+    font-size:15px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header class="site-header">
   <div class="container">
-
-    <div class="logo">
-      <a href="../index.html" class="logo-link">
-        <img src="../assets/logo/logo_intervalle.png" class="logo-img">
-      </a>
-    </div>
-
+    <img src="/logo.png" class="logo-img">
     <nav class="site-nav">
-      <a href="accompagnement.html">Accompagnement</a>
-      <a href="entreprises.html">Entreprises</a>
-      <a href="distance.html">À distance</a>
-      <a href="histoire.html">L’INTERVALLE</a>
-      <a href="contact.html">Contact</a>
+      <a href="/pages/accompagnement.html">Accompagnement</a>
+      <a href="/pages/entreprises.html">Entreprises</a>
+      <a href="/pages/distance.html">À distance</a>
+      <a href="/pages/histoire.html">L’INTERVALLE</a>
+      <a href="/pages/contact.html">Contact</a>
     </nav>
-
   </div>
 </header>
 
 <main class="page">
 
-  <section class="hero-section">
-    <h1 class="page-title">Accompagnement</h1>
-
-    <div class="divider">
-      <svg viewBox="0 0 320 34">
-        <line x1="20" y1="17" x2="140" y2="17" stroke="#b8892e"/>
-        <line x1="180" y1="17" x2="300" y2="17" stroke="#b8892e"/>
-        <line x1="160" y1="10" x2="160" y2="24" stroke="#b8892e"/>
-        <line x1="152" y1="17" x2="168" y2="17" stroke="#b8892e"/>
-        <circle cx="160" cy="17" r="1.5" fill="#e2c98f"/>
-      </svg>
+  <section class="hero">
+    <div class="title">Accompagnement</div>
+    <div class="subtitle">
+      Un espace pour déposer, comprendre et transformer ce qui se joue en vous, à votre rythme.
     </div>
-
-    <p class="hero-sub">
-      Un espace pour ralentir, observer et rééquilibrer.
-    </p>
   </section>
 
-  <section class="intro-luxe">
-    <p>
-      Prendre un temps pour soi, dans un cadre calme et respectueux,
-      permet d’ouvrir un espace d’observation et de transformation.
-    </p>
+  <section class="section">
+    <div class="section-title">Un travail en profondeur</div>
+    <div class="section-text">
+      Chaque accompagnement s’inscrit dans une démarche d’écoute, de présence et de compréhension de votre histoire personnelle.
+      Il ne s’agit pas d’appliquer des solutions, mais d’explorer ce qui cherche à émerger.
+    </div>
   </section>
 
-  <section class="pillars">
-
-    <div class="pillar">
-      <div class="pillar-line"></div>
-      <h3>Présence</h3>
-      <p>Se reconnecter à l’instant</p>
+  <section class="section">
+    <div class="section-title">Une approche ancrée</div>
+    <div class="section-text">
+      Le travail s’appuie sur le corps, la parole et la mémoire.
+      Il permet de remettre du mouvement là où quelque chose s’est figé.
     </div>
-
-    <div class="pillar">
-      <div class="pillar-line"></div>
-      <h3>Écoute</h3>
-      <p>Accueillir sans jugement</p>
-    </div>
-
-    <div class="pillar">
-      <div class="pillar-line"></div>
-      <h3>Équilibre</h3>
-      <p>Retrouver une stabilité intérieure</p>
-    </div>
-
   </section>
 
-  <section class="text-block large highlight">
-
-    <p>
-      L’accompagnement proposé par <strong>L’INTERVALLE</strong> repose sur une approche douce et progressive,
-      respectueuse de votre rythme et de votre singularité.
-    </p>
-
-    <p>
-      Chaque séance s’adapte à votre état du moment, dans une attention portée à ce qui émerge.
-    </p>
-
-  </section>
-
-  <section class="approach">
-
-    <h2>Une approche progressive</h2>
-
-    <div class="steps">
-
-      <div class="step">
-        <span>01</span>
-        <p>Prendre le temps d’identifier ce qui se présente</p>
-      </div>
-
-      <div class="step">
-        <span>02</span>
-        <p>Explorer avec douceur et sans pression</p>
-      </div>
-
-      <div class="step">
-        <span>03</span>
-        <p>Réajuster et intégrer dans votre quotidien</p>
-      </div>
-
+  <section class="section">
+    <div class="section-title">Pour qui</div>
+    <div class="section-text">
+      Pour toute personne en transition, en questionnement ou en recherche d’un espace pour se retrouver.
     </div>
-
   </section>
 
   <section class="cta">
-
-    <h2>Prendre rendez-vous</h2>
-
-    <p>
-      Si vous ressentez le besoin d’être accompagné,
-      vous pouvez me contacter directement.
-    </p>
-
-    <a href="contact.html" class="cta-button">
-      Me contacter
-    </a>
-
+    <a href="/pages/contact.html">Prendre rendez-vous</a>
   </section>
 
 </main>
-
-<footer>
-  <div class="container" style="flex-direction:column; gap:10px; text-align:center;">
-    <div>L’INTERVALLE — Marie Männlein</div>
-    <div style="width:40px;height:1px;background:#aaa;margin:6px auto;"></div>
-    <div>0661582369 • marie@lintervalle.live</div>
-  </div>
-</footer>
 
 </body>
 </html>
