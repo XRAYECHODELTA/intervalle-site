@@ -9,7 +9,7 @@
 
 <style>
 
-/* ===== HERO PREMIUM ===== */
+/* ===== BASE ===== */
 .hero-section{
   min-height:calc(100vh - var(--header-height));
   display:flex;
@@ -17,104 +17,109 @@
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:80px 20px 100px;
-  gap:28px;
+  padding:100px 20px 120px;
+  gap:34px;
 }
 
 /* ===== TITRE ===== */
 .page-title{
-  font-size:clamp(38px,5vw,64px);
-  letter-spacing:0.08em;
+  font-size:clamp(42px,5vw,72px);
+  letter-spacing:0.12em;
   font-weight:500;
+  animation:fadeUp 1.2s ease forwards;
 }
 
-/* ===== DIVIDER PREMIUM ===== */
+/* ===== DIVIDER ===== */
 .divider{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  margin:10px 0 18px;
+  margin:6px 0 18px;
+  animation:fadeUp 1.6s ease forwards;
 }
 
 .divider svg{
-  width:320px;
-  height:auto;
-  overflow:visible;
+  width:340px;
 }
 
 /* lignes */
 .divider line{
   stroke:var(--gold);
   stroke-width:1;
-  opacity:0.6;
+  opacity:0.55;
 }
 
-/* ===== ÉTOILE LUXE ===== */
+/* étoile */
 .star-core{
   fill:var(--gold-soft);
-  filter:drop-shadow(0 0 6px rgba(212,175,55,0.6));
-  animation:starPulse 2.6s ease-in-out infinite;
+  filter:drop-shadow(0 0 8px rgba(212,175,55,0.5));
+  animation:pulse 3s ease-in-out infinite;
 }
 
 .star-cross{
   stroke:var(--gold);
   stroke-width:1.2;
-  opacity:0.9;
 }
 
-/* halo animé */
 .star-glow{
-  fill:transparent;
+  fill:none;
   stroke:var(--gold-soft);
   stroke-width:0.6;
-  opacity:0.4;
-  animation:halo 3s ease-in-out infinite;
-}
-
-/* animations */
-@keyframes starPulse{
-  0%,100%{ transform:scale(1); opacity:1;}
-  50%{ transform:scale(1.25); opacity:0.85;}
-}
-
-@keyframes halo{
-  0%{ transform:scale(1); opacity:0.4;}
-  50%{ transform:scale(1.6); opacity:0;}
-  100%{ transform:scale(1); opacity:0.4;}
+  opacity:0.3;
+  animation:halo 4s ease-in-out infinite;
 }
 
 /* ===== NOM ===== */
 .hero-sub{
-  font-size:14px;
-  letter-spacing:0.25em;
+  font-size:13px;
+  letter-spacing:0.35em;
   color:var(--muted);
-  margin-top:6px;
+  animation:fadeUp 1.8s ease forwards;
 }
 
 /* ===== TEXTE ===== */
 .intro-luxe{
   max-width:560px;
   font-size:18px;
-  line-height:1.9;
+  line-height:2;
   color:var(--text);
-  margin-top:10px;
+  animation:fadeUp 2.2s ease forwards;
 }
 
-/* ===== LOGO HEADER BOOST ===== */
+/* ===== HEADER ===== */
+.site-header{
+  backdrop-filter:blur(8px);
+  background:rgba(250,248,244,0.75);
+  transition:all 0.4s ease;
+}
+
 .logo-img{
-  height:54px;
+  height:60px;
   transition:all 0.4s ease;
 }
 
 .logo-img:hover{
-  transform:scale(1.05);
-  opacity:0.9;
+  transform:scale(1.04);
 }
 
-/* ===== RESPIRATION HEADER ===== */
-.site-header{
-  backdrop-filter:blur(6px);
-  background:rgba(250,248,244,0.85);
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.2);}
+}
+
+@keyframes halo{
+  0%{transform:scale(1);opacity:0.3;}
+  50%{transform:scale(1.7);opacity:0;}
+  100%{transform:scale(1);opacity:0.3;}
 }
 
 </style>
@@ -127,7 +132,7 @@
   <div class="container">
 
     <div class="logo">
-      <a href="/index.html" class="logo-link">
+      <a href="/index.html">
         <img src="/logo.png" class="logo-img" alt="L'INTERVALLE">
       </a>
     </div>
@@ -143,56 +148,41 @@
   </div>
 </header>
 
-<main class="page">
+<main>
 
-  <section class="hero-section">
+<section class="hero-section">
 
-    <h1 class="page-title">L’INTERVALLE</h1>
+  <h1 class="page-title">L’INTERVALLE</h1>
 
-    <div class="divider">
-      <svg viewBox="0 0 320 34">
+  <div class="divider">
+    <svg viewBox="0 0 320 34">
 
-        <!-- lignes -->
-        <line x1="20" y1="17" x2="140" y2="17"/>
-        <line x1="180" y1="17" x2="300" y2="17"/>
+      <line x1="20" y1="17" x2="140" y2="17"/>
+      <line x1="180" y1="17" x2="300" y2="17"/>
 
-        <!-- étoile luxe -->
-        <g transform="translate(160,17)">
+      <g transform="translate(160,17)">
+        <circle class="star-glow" r="9"/>
+        <line class="star-cross" x1="-6" y1="0" x2="6" y2="0"/>
+        <line class="star-cross" x1="0" y1="-6" x2="0" y2="6"/>
+        <circle class="star-core" r="2"/>
+      </g>
 
-          <!-- halo -->
-          <circle class="star-glow" r="8"/>
+    </svg>
+  </div>
 
-          <!-- croix -->
-          <line class="star-cross" x1="-6" y1="0" x2="6" y2="0"/>
-          <line class="star-cross" x1="0" y1="-6" x2="0" y2="6"/>
+  <p class="hero-sub">MARIE MÄNNLEIN</p>
 
-          <!-- noyau -->
-          <circle class="star-core" r="2"/>
+  <div class="intro-luxe">
+    Un espace pour se reconnecter à soi,<br>
+    explorer ses racines<br>
+    et ajuster son équilibre.
+  </div>
 
-        </g>
-
-      </svg>
-    </div>
-
-    <p class="hero-sub">MARIE MÄNNLEIN</p>
-
-    <div class="intro-luxe">
-  Un espace pour se reconnecter à soi,<br>
-  explorer ses racines<br>
-  et ajuster son équilibre.
-</div>
-
-  </section>
+</section>
 
 </main>
 
-<footer>
-  <div class="container" style="flex-direction:column; gap:10px; text-align:center;">
-    <div>L’INTERVALLE — Marie Männlein</div>
-    <div style="width:40px;height:1px;background:#aaa;margin:6px auto;"></div>
-    <div>0661582369 • marie@lintervalle.live</div>
-  </div>
-</footer>
+<!-- PAS DE FOOTER VOLONTAIRE -->
 
 </body>
 </html>
