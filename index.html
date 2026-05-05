@@ -7,7 +7,6 @@
 
 <style>
 
-/* ===== RESET ===== */
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -17,7 +16,6 @@ body{
     radial-gradient(circle at 50% 42%, #f7f1e8 0%, #e7ded0 55%, #d3c6b5 100%);
 }
 
-/* ===== HEADER ===== */
 .site-header{
   height:90px;
   display:flex;
@@ -39,18 +37,10 @@ body{
   padding:0 24px;
 }
 
-/* ===== LOGO ===== */
 .logo-img{
   height:78px;
-  cursor: pointer;
-  transition: 0.3s ease;
 }
 
-.logo-img:hover{
-  transform: scale(1.05);
-}
-
-/* ===== NAV ===== */
 .site-nav{
   display:flex;
   gap:36px;
@@ -74,51 +64,44 @@ body{
   padding-top:90px;
 }
 
-/* ===== TITRE ===== */
 .title{
   font-size:clamp(44px,5vw,88px);
   letter-spacing:0.20em;
   font-weight:500;
 }
 
-/* 🔥 AXE CENTRAL (RESPIRATION PREMIUM) */
 .axis{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:28px; /* 🔥 PLUS D’AIR ENTRE POINT ET NOM */
-  margin-top:26px; /* 🔥 DÉCOLLE DU TITRE */
+  gap:28px;
+  margin-top:26px;
 }
 
-/* 🔥 POINT AJUSTÉ */
 .gold-dot{
   width:5px;
   height:5px;
   border-radius:50%;
   background:radial-gradient(circle,#f3dfb3,#b8892e);
   box-shadow:0 0 12px rgba(212,175,55,0.7);
-  margin:6px 0; /* 🔥 RESPIRATION AUTOUR */
+  margin:6px 0;
 }
 
-/* ===== NOM ===== */
 .name{
   font-size:11px;
   letter-spacing:0.5em;
   color:#5c564f;
 }
 
-/* ===== TEXTE ===== */
 .text{
-  margin-top:28px; /* 🔥 DÉCOLLAGE GLOBAL */
+  margin-top:28px;
   max-width:420px;
   font-size:16px;
   line-height:2.1;
   color:#5c564f;
 }
 
-/* ===== MOBILE ===== */
 @media(max-width:768px){
-
   .container{
     flex-direction:column;
     gap:8px;
@@ -148,7 +131,6 @@ body{
     font-size:14px;
     margin-top:24px;
   }
-
 }
 
 </style>
@@ -158,7 +140,7 @@ body{
 
 <header class="site-header">
   <div class="container">
-    <a href="/index.html"><img src="/logo.png" class="logo-img"></a> <!-- Lien vers la page d'accueil -->
+    <a href="/index.html"><img src="/logo.png" class="logo-img" alt="L'INTERVALLE"></a>
     <nav class="site-nav">
       <a href="/pages/accompagnement.html">Accompagnement</a>
       <a href="/pages/entreprises.html">Entreprises</a>
