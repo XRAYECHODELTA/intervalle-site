@@ -1,40 +1,69 @@
 // ===============================
-// MAIN.JS — VERSION PROPRE COMPLETE
+// MAIN.JS — VERSION COMPLETE AVEC HEADER / FOOTER
 // ===============================
 
 document.addEventListener("DOMContentLoaded", () => {
 
   // ===============================
+  // LOAD HEADER
+  // ===============================
+  fetch("/components/header.html")
+    .then(res => res.text())
+    .then(data => {
+      const headerContainer = document.createElement("div");
+      headerContainer.innerHTML = data;
+      document.body.prepend(headerContainer);
+
+      initHeader(); // important
+      setActiveNav(); // important
+    });
+
+  // ===============================
+  // LOAD FOOTER
+  // ===============================
+  fetch("/components/footer.html")
+    .then(res => res.text())
+    .then(data => {
+      const footerContainer = document.createElement("div");
+      footerContainer.innerHTML = data;
+      document.body.appendChild(footerContainer);
+    });
+
+  // ===============================
   // HEADER SCROLL
   // ===============================
-  const header = document.querySelector(".site-header");
+  function initHeader() {
+    const header = document.querySelector(".site-header");
 
-  if (header) {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 30) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
+    if (header) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 30) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+    }
+  }
+
+  // ===============================
+  // ACTIVE NAV
+  // ===============================
+  function setActiveNav() {
+    const links = document.querySelectorAll(".site-nav a");
+    const current = window.location.pathname;
+
+    links.forEach(link => {
+      const href = link.getAttribute("href");
+
+      if (href !== "/" && current.includes(href)) {
+        link.classList.add("active");
       }
     });
   }
 
   // ===============================
-  // AUTO ACTIVE NAV LINK
-  // ===============================
-  const links = document.querySelectorAll(".site-nav a");
-  const current = window.location.pathname;
-
-  links.forEach(link => {
-    const href = link.getAttribute("href");
-
-    if (href !== "/" && current.includes(href)) {
-      link.classList.add("active");
-    }
-  });
-
-  // ===============================
-  // FADE UP SCROLL (INTERSECTION OBSERVER)
+  // ANIMATIONS
   // ===============================
   const animatedElements = document.querySelectorAll(
     ".pillar, .content p, .cta, .hero-small h1, .intro"
@@ -59,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   } else {
-    // fallback vieux navigateur
     animatedElements.forEach(el => {
       el.classList.add("visible");
     });
