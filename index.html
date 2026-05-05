@@ -39,6 +39,7 @@ body{
 
 .logo-img{
   height:78px;
+  cursor: pointer; /* Ajout du curseur pour la souris sur le logo */
 }
 
 .site-nav{
@@ -62,6 +63,7 @@ body{
   justify-content:center;
   text-align:center;
   padding-top:90px;
+  position:relative; /* Pour garantir que les éléments enfants soient bien alignés */
 }
 
 .title{
@@ -76,15 +78,17 @@ body{
   align-items:center;
   gap:28px;
   margin-top:26px;
+  position:relative;
 }
 
 .gold-dot{
-  width:5px;
-  height:5px;
+  width:7px;
+  height:7px;
   border-radius:50%;
   background:radial-gradient(circle,#f3dfb3,#b8892e);
   box-shadow:0 0 12px rgba(212,175,55,0.7);
   margin:6px 0;
+  position:absolute;
 }
 
 .name{
@@ -99,6 +103,17 @@ body{
   font-size:16px;
   line-height:2.1;
   color:#5c564f;
+}
+
+/* ===== SECTION - STARS BETWEEN SECTIONS ===== */
+.section::before{
+  content: "★";
+  font-size:28px;
+  color:#b8892e;
+  display:block;
+  text-align:center;
+  margin:20px 0;
+  letter-spacing:4px;
 }
 
 @media(max-width:768px){
@@ -152,20 +167,16 @@ body{
 </header>
 
 <section class="hero">
-
   <div class="title">L’INTERVALLE</div>
-
   <div class="axis">
     <div class="gold-dot"></div>
     <div class="name">MARIE MÄNNLEIN</div>
   </div>
-
   <div class="text">
     Un espace pour se reconnecter à soi,<br>
     explorer ses racines<br>
     et ajuster son équilibre.
   </div>
-
 </section>
 
 </body>
