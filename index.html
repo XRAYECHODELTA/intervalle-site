@@ -1,218 +1,204 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L’INTERVALLE — Marie Männlein</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L’INTERVALLE — Marie Männlein</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
 
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      color: #1b1b1a;
-      background: radial-gradient(circle at 50% 42%, #f7f1e8 0%, #e7ded0 55%, #d3c6b5 100%);
-    }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    .site-header {
-      height: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(18px);
-      position: fixed;
-      width: 100%;
-      top: 0;
-    }
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  color:#1b1b1a;
+  background:
+    radial-gradient(circle at 50% 42%, #f7f1e8 0%, #e7ded0 55%, #d3c6b5 100%);
+}
 
-    .container {
-      width: 100%;
-      max-width: 1180px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 24px;
-    }
+.site-header{
+  height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,0.78);
+  backdrop-filter:blur(18px);
+  position:fixed;
+  width:100%;
+  top:0;
+}
 
-    .logo-img {
-      height: 78px;
-    }
+.container{
+  width:100%;
+  max-width:1180px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 24px;
+}
 
-    .site-nav {
-      display: flex;
-      gap: 36px;
-    }
+.logo-img{
+  height:78px;
+}
 
-    .site-nav a {
-      text-decoration: none;
-      font-size: 12px;
-      color: #5c564f;
-      letter-spacing: 0.15em;
-    }
+.site-nav{
+  display:flex;
+  gap:36px;
+}
 
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding-top: 90px;
-    }
+.site-nav a{
+  text-decoration:none;
+  font-size:12px;
+  color:#5c564f;
+  letter-spacing:0.15em;
+}
 
-    .title {
-      font-size: clamp(44px, 5vw, 88px);
-      letter-spacing: 0.20em;
-      font-weight: 500;
-    }
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding-top:90px;
+}
 
-    /* ===== AXE CENTRAL AVEC L'ÉTOILE ET LIGNES ===== */
-    .axis {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 28px;
-      margin-top: 26px;
-    }
+.title{
+  font-size:clamp(44px,5vw,88px);
+  letter-spacing:0.20em;
+  font-weight:500;
+}
 
-    .star-container {
-      display: flex;
-      align-items: center;
-    }
+/* ===== AXE CENTRAL AVEC L'ÉTOILE ET LIGNES ===== */
+.axis{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:28px;
+  margin-top:26px;
+}
 
-    .gold-star {
-      width: 72px;
-      height: 72px;
-      background-color: transparent;
-      border: none;
-      position: relative;
-      animation: shimmer 2s infinite alternate;
-    }
+.star-container {
+  display: flex;
+  align-items: center;
+}
 
-    .gold-star:before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(45deg);
-      width: 36px;
-      height: 36px;
-      background-color: #b8892e;
-      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    }
+.gold-star {
+  width: 72px;
+  height: 72px;
+  background-color: transparent;
+  border: none;
+  position: relative;
+}
 
-    .gold-line {
-      width: 160px;
-      height: 2px;
-      background-color: #b8892e;
-      margin: 0 10px;
-    }
+.gold-star:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 36px;
+  height: 36px;
+  background-color: #b8892e;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
 
-    .name {
-      font-size: 18px;
-      letter-spacing: 0.5em;
-      color: #5c564f;
-    }
+.gold-line {
+  width: 160px;
+  height: 2px;
+  background-color: #b8892e;
+  margin: 0 10px;
+}
 
-    .text {
-      margin-top: 28px;
-      max-width: 420px;
-      font-size: 16px;
-      line-height: 2.1;
-      color: #5c564f;
-    }
+.name{
+  font-size:18px;
+  letter-spacing:0.5em;
+  color:#5c564f;
+}
 
-    .cta-button {
-      margin-top: 40px;
-      padding: 12px 36px;
-      border: 1px solid #b8892e;
-      color: #b8892e;
-      background-color: transparent;
-      text-decoration: none;
-      letter-spacing: 0.14em;
-      font-size: 16px;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-    }
+.text{
+  margin-top:28px;
+  max-width:420px;
+  font-size:16px;
+  line-height:2.1;
+  color:#5c564f;
+}
 
-    .cta-button:hover {
-      background-color: #b8892e;
-      color: white;
-      transform: translateY(-3px);
-    }
+.cta-button {
+  margin-top:40px;
+  padding:12px 36px;
+  border:1px solid #b8892e;
+  color:#b8892e;
+  background-color: transparent;
+  text-decoration: none;
+  letter-spacing:0.14em;
+  font-size:16px;
+  border-radius:4px;
+  transition: all 0.3s ease;
+}
 
-    /* ===== BACKGROUND AND BUTTON STYLES ===== */
-    .cta-text {
-      font-size: 20px;
-      line-height: 1.6;
-      color: #5c564f;
-      background: radial-gradient(circle at 50% 50%, #f7f1e8 0%, #e7ded0 60%, #d3c6b5 100%);
-      padding: 20px;
-      border-radius: 8px;
-      margin-top: 40px;
-      max-width: 600px;
-      text-align: center;
-      box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
-    }
+.cta-button:hover {
+  background-color: #b8892e;
+  color: white;
+  transform: translateY(-3px);
+}
 
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        gap: 8px;
-      }
+/* ===== BACKGROUND AND BUTTON STYLES ===== */
+.cta-text {
+  font-size:20px;
+  line-height:1.6;
+  color:#5c564f;
+  background: radial-gradient(circle at 50% 50%, #f7f1e8 0%, #e7ded0 60%, #d3c6b5 100%);
+  padding:20px;
+  border-radius:8px;
+  margin-top:40px;
+  max-width:600px;
+  text-align:center;
+  box-shadow: 0 0 12px rgba(212,175,55,0.5);
+}
 
-      .site-nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-      }
+@media(max-width:768px){
+  .container{
+    flex-direction:column;
+    gap:8px;
+  }
 
-      .logo-img {
-        height: 58px;
-      }
+  .site-nav{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
 
-      .title {
-        font-size: 32px;
-        letter-spacing: 0.16em;
-      }
+  .logo-img{
+    height:58px;
+  }
 
-      .axis {
-        gap: 22px;
-        margin-top: 20px;
-      }
+  .title{
+    font-size:32px;
+    letter-spacing:0.16em;
+  }
 
-      .text {
-        font-size: 14px;
-        margin-top: 24px;
-      }
+  .axis{
+    gap:22px;
+    margin-top:20px;
+  }
 
-      .cta-button {
-        font-size: 14px;
-      }
+  .text{
+    font-size:14px;
+    margin-top:24px;
+  }
 
-      .cta-text {
-        font-size: 16px;
-      }
-    }
+  .cta-button {
+    font-size:14px;
+  }
 
-    /* Star shimmer animation */
-    @keyframes shimmer {
-      0% {
-        transform: translate(-50%, -50%) rotate(45deg) scale(1);
-        box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
-      }
-      100% {
-        transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
-        box-shadow: 0 0 20px rgba(212, 175, 55, 1);
-      }
-    }
-  </style>
+  .cta-text {
+    font-size:16px;
+  }
+}
+
+</style>
 </head>
 
 <body>
@@ -242,10 +228,11 @@
     <div class="name">MARIE MÄNNLEIN</div>
   </div>
 
+  <!-- New Text and Button Section -->
   <div class="cta-text">
     Un espace pour se reconnecter, explorer ses racines et se réajuster à son rythme.
   </div>
-  <a href="/pages/contaAct.html" class="cta-button">Contactez-moi pour en discuter</a>
+  <a href="/pages/contact.html" class="cta-button">Contactez-moi pour en discuter</a>
 
 </section>
 
