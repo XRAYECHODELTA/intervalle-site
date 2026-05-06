@@ -1,84 +1,287 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entreprises — L’INTERVALLE</title>
 
-<title>Entreprises — L’INTERVALLE</title>
+  <style>
+    /* RESET STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<link rel="stylesheet" href="/assets/css/main.css">
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #1b1b1a;
+      background: radial-gradient(circle at 50% 42%, #f7f1e8 0%, #e7ded0 55%, #d3c6b5 100%);
+      animation: fadeInBackground 1.5s ease-in-out;
+    }
+
+    /* Animation de fond */
+    @keyframes fadeInBackground {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* HEADER */
+    .site-header {
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(18px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1040px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 24px;
+    }
+
+    .logo-img {
+      height: 70px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-img:hover {
+      transform: scale(1.1);
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 36px;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+      font-size: 12px;
+      color: #5c564f;
+      letter-spacing: 0.15em;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .site-nav a:hover {
+      color: #b8892e;
+      transform: translateY(-3px);
+    }
+
+    /* PAGE */
+    .page {
+      padding-top: 120px;
+      max-width: 950px;
+      margin: auto;
+      text-align: center;
+      animation: fadeInContent 1.5s ease-out;
+    }
+
+    @keyframes fadeInContent {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* HERO */
+    .hero-section {
+      margin-bottom: 40px; 
+      text-align: center;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .page-title {
+      font-size: clamp(36px, 4vw, 48px);
+      letter-spacing: 0.14em;
+      margin-bottom: 16px; 
+    }
+
+    .hero-sub {
+      max-width: 500px;
+      margin: auto;
+      font-size: 17px;
+      line-height: 2.1;
+      color: #5c564f;
+    }
+
+    /* SECTIONS */
+    .text-block {
+      margin: 30px 0; 
+      opacity: 0;
+      animation: fadeInSection 1.5s ease-out forwards;
+    }
+
+    .text-block.large {
+      max-width: 800px;
+      margin: 50px auto;
+      font-size: 18px;
+    }
+
+    .highlight {
+      background-color: rgba(184, 137, 46, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    @keyframes fadeInSection {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* CTA */
+    .cta {
+      margin: 80px 0 40px;
+      text-align: center;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .cta h2 {
+      font-size: 22px;
+      color: #5c564f;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 16px 36px;
+      border: 1px solid #b8892e;
+      color: #b8892e;
+      text-decoration: none;
+      letter-spacing: 0.14em;
+      font-size: 12px;
+      transition: all 0.35s ease;
+      transform: translateY(0);
+    }
+
+    .cta-button:hover {
+      background: #b8892e;
+      color: white;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .logo-img {
+        height: 52px;
+      }
+
+      .page-title {
+        font-size: 28px;
+      }
+
+      .hero-sub {
+        font-size: 15px;
+      }
+
+      .text-block.large {
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<main class="page">
-
-  <!-- HERO -->
-  <section class="hero-section">
-
-    <h1 class="page-title fade">Entreprises</h1>
-
-    <div class="divider fade">
-      <svg viewBox="0 0 320 34">
-        <line x1="20" y1="17" x2="140" y2="17" stroke="#b8892e"/>
-        <line x1="180" y1="17" x2="300" y2="17" stroke="#b8892e"/>
-        <line x1="160" y1="10" x2="160" y2="24" stroke="#b8892e"/>
-        <line x1="152" y1="17" x2="168" y2="17" stroke="#b8892e"/>
-        <circle cx="160" cy="17" r="1.5" fill="#e2c98f"/>
-      </svg>
+  <header class="site-header">
+    <div class="container">
+      <a href="/index.html"><img src="/logo.png" class="logo-img" alt="L’INTERVALLE"></a>
+      <nav class="site-nav">
+        <a href="/pages/accompagnement.html">Accompagnement</a>
+        <a href="/pages/entreprises.html">Entreprises</a>
+        <a href="/pages/distance.html">À distance</a>
+        <a href="/pages/histoire.html">L’INTERVALLE</a>
+        <a href="/pages/contact.html">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <p class="hero-sub fade">
-      Un espace de régulation, de clarté et de justesse au cœur du collectif.
-    </p>
+  <main class="page">
+    <section class="hero-section">
+      <h1 class="page-title">Entreprises</h1>
 
-  </section>
+      <div class="divider">
+        <svg viewBox="0 0 320 34">
+          <line x1="20" y1="17" x2="140" y2="17" stroke="#b8892e"/>
+          <line x1="180" y1="17" x2="300" y2="17" stroke="#b8892e"/>
+          <line x1="160" y1="10" x2="160" y2="24" stroke="#b8892e"/>
+          <line x1="152" y1="17" x2="168" y2="17" stroke="#b8892e"/>
+          <circle cx="160" cy="17" r="1.5" fill="#e2c98f"/>
+        </svg>
+      </div>
 
-  <!-- INTRO -->
-  <section class="text-block large fade">
+      <p class="hero-sub">
+        Un espace de régulation, de clarté et de justesse au cœur du collectif.
+      </p>
+    </section>
 
-    <p>
-      L’INTERVALLE accompagne les structures qui souhaitent
-      retrouver un fonctionnement plus fluide, plus lisible,
-      et plus respectueux des équilibres humains.
-    </p>
+    <section class="text-block large">
+      <p>
+        L’INTERVALLE accompagne les structures qui souhaitent
+        retrouver un fonctionnement plus fluide, plus lisible,
+        et plus respectueux des équilibres humains.
+      </p>
 
-    <p>
-      Derrière les tensions visibles se trouvent souvent des déséquilibres
-      plus profonds : rythme, communication, place, responsabilité.
-    </p>
+      <p>
+        Derrière les tensions visibles se trouvent souvent des déséquilibres
+        plus profonds : rythme, communication, place, responsabilité.
+      </p>
+    </section>
 
-  </section>
+    <section class="text-block large highlight">
+      <p>
+        Mon approche consiste à créer un espace où l’on peut ralentir,
+        observer sans jugement, et réajuster ce qui demande à l’être.
+      </p>
 
-  <!-- APPROCHE -->
-  <section class="text-block large highlight fade">
+      <p>
+        Chaque intervention est adaptée à la réalité du terrain :
+        équipes, direction, moments de transition ou de tension.
+      </p>
+    </section>
 
-    <p>
-      Mon approche consiste à créer un espace où l’on peut ralentir,
-      observer sans jugement, et réajuster ce qui demande à l’être.
-    </p>
-
-    <p>
-      Chaque intervention est adaptée à la réalité du terrain :
-      équipes, direction, moments de transition ou de tension.
-    </p>
-
-  </section>
-
-  <!-- CTA -->
-  <section class="cta fade">
-
-    <h2>Échanger autour de votre situation</h2>
-
-    <a href="mailto:contact@intervalle.fr" class="cta-button">
-      Prendre contact
-    </a>
-
-  </section>
-
-</main>
-
-<script src="/assets/js/main.js"></script>
+    <section class="cta">
+      <h2>Échanger autour de votre situation</h2>
+      <a href="mailto:contact@intervalle.fr" class="cta-button">
+        Prendre contact
+      </a>
+    </section>
+  </main>
 
 </body>
 </html>
