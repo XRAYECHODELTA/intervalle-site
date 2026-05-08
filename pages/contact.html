@@ -257,17 +257,17 @@ HERO
 }
 
 /* =========================
-CONTACT BLOCK
+MAIN BLOCK
 ========================= */
 
 .text-block{
   position:relative;
 
-  max-width:720px;
+  max-width:760px;
 
   margin:
     0 auto
-    38px;
+    26px;
 
   padding:
     48px
@@ -327,20 +327,15 @@ CONTACT BLOCK
     0 0 22px rgba(212,175,55,0.05);
 }
 
-.text-block p{
-  font-size:20px;
-  line-height:2.15;
+.contact-title{
+  font-size:22px;
+
+  line-height:2;
 
   color:#4e4942;
-}
 
-.text-block p + p{
-  margin-top:26px;
+  margin-bottom:34px;
 }
-
-/* =========================
-CONTACT INFOS
-========================= */
 
 .contact-name{
   color:#2f2b27;
@@ -348,55 +343,134 @@ CONTACT INFOS
   letter-spacing:0.04em;
 }
 
+/* =========================
+CONTACT ROW
+========================= */
+
 .contact-links{
   display:flex;
-  flex-direction:column;
-  gap:18px;
+  justify-content:center;
+  align-items:center;
+  gap:34px;
 
-  margin-top:10px;
+  flex-wrap:wrap;
 }
 
-.contact-item{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
+.contact-card{
+  width:260px;
 
-  font-size:21px;
+  padding:
+    28px
+    22px;
 
-  color:#2f2b27;
+  border-radius:28px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.46),
+      rgba(255,255,255,0.20)
+    );
+
+  border:1px solid rgba(184,137,46,0.12);
+
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+.contact-card:hover{
+  transform:translateY(-4px);
+
+  border-color:rgba(184,137,46,0.24);
+
+  box-shadow:
+    0 14px 34px rgba(0,0,0,0.05);
 }
 
 .contact-icon{
-  font-size:20px;
+  width:74px;
+  height:74px;
 
-  color:#b8892e;
+  margin:
+    0 auto
+    18px;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+    radial-gradient(circle at 30% 30%, #f4e4bf 0%, #d3ae62 100%);
+
+  box-shadow:
+    0 8px 22px rgba(184,137,46,0.16);
+
+  color:white;
 }
 
-.contact-item a{
+.contact-icon svg{
+  width:30px;
+  height:30px;
+
+  stroke:white;
+}
+
+.contact-card a{
   text-decoration:none;
 
   color:#2f2b27;
 
-  transition:
-    color .3s ease,
-    opacity .3s ease;
+  font-size:18px;
+  line-height:1.8;
+
+  transition:color .3s ease;
 }
 
-.contact-item a:hover{
+.contact-card a:hover{
   color:#b8892e;
 }
 
 /* =========================
-BOTTOM TEXT
+BOTTOM NOTE
 ========================= */
 
-.contact-note{
-  max-width:620px;
+.contact-note-wrapper{
+  max-width:760px;
 
-  margin:auto;
+  margin:
+    0 auto
+    34px;
+
+  padding:
+    24px
+    34px;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.34),
+      rgba(255,255,255,0.14)
+    );
+
+  border:1px solid rgba(184,137,46,0.10);
+
+  backdrop-filter:blur(10px);
+}
+
+.contact-note{
+  font-size:17px;
 
   color:#5d564d;
+
+  letter-spacing:0.04em;
+
+  white-space:nowrap;
 }
 
 /* =========================
@@ -503,18 +577,39 @@ MOBILE
     border-radius:24px;
   }
 
-  .text-block p{
-    font-size:16px;
+  .contact-title{
+    font-size:17px;
 
-    line-height:2;
+    line-height:1.8;
   }
 
-  .contact-item{
+  .contact-links{
     flex-direction:column;
+    gap:18px;
+  }
 
-    gap:6px;
+  .contact-card{
+    width:100%;
+  }
 
-    font-size:17px;
+  .contact-card a{
+    font-size:16px;
+  }
+
+  .contact-note-wrapper{
+    border-radius:28px;
+
+    padding:
+      22px
+      20px;
+  }
+
+  .contact-note{
+    white-space:normal;
+
+    line-height:1.8;
+
+    font-size:15px;
   }
 
 }
@@ -580,7 +675,7 @@ MOBILE
   <!-- CONTACT -->
   <section class="text-block">
 
-    <p>
+    <p class="contact-title">
       Vous pouvez contacter
       <span class="contact-name">
         Marie Männlein
@@ -590,11 +685,17 @@ MOBILE
 
     <div class="contact-links">
 
-      <div class="contact-item">
+      <!-- TELEPHONE -->
+      <div class="contact-card">
 
-        <span class="contact-icon">
-          ✦
-        </span>
+        <div class="contact-icon">
+
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round"
+            d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a1.5 1.5 0 001.5-1.5v-2.742a1.5 1.5 0 00-1.09-1.44l-4.423-1.106a1.5 1.5 0 00-1.465.417l-.97 1.01a12.042 12.042 0 01-5.516-5.516l1.01-.97a1.5 1.5 0 00.417-1.465L7.932 3.84A1.5 1.5 0 006.492 2.75H3.75a1.5 1.5 0 00-1.5 1.5v2.5z"/>
+          </svg>
+
+        </div>
 
         <a href="tel:0661582369">
           06 61 58 23 69
@@ -602,11 +703,17 @@ MOBILE
 
       </div>
 
-      <div class="contact-item">
+      <!-- MAIL -->
+      <div class="contact-card">
 
-        <span class="contact-icon">
-          ✦
-        </span>
+        <div class="contact-icon">
+
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round"
+            d="M21.75 7.5v9A2.25 2.25 0 0119.5 18.75h-15A2.25 2.25 0 012.25 16.5v-9m19.5 0A2.25 2.25 0 0019.5 5.25h-15A2.25 2.25 0 002.25 7.5m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0l-7.5-4.615A2.25 2.25 0 012.25 7.743V7.5"/>
+          </svg>
+
+        </div>
 
         <a href="mailto:marie@lintervalle.live">
           marie@lintervalle.live
@@ -616,9 +723,13 @@ MOBILE
 
     </div>
 
+  </section>
+
+  <!-- NOTE -->
+  <section class="contact-note-wrapper">
+
     <p class="contact-note">
-      Chaque demande reçoit une réponse attentive,
-      confidentielle et personnalisée.
+      Chaque demande reçoit une réponse attentive, confidentielle et personnalisée.
     </p>
 
   </section>
