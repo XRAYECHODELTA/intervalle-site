@@ -7,39 +7,105 @@
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;}
+/* =========================
+RESET
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   font-family:Georgia,"Times New Roman",serif;
   color:#1b1b1a;
+
   background:
-    radial-gradient(circle at 50% 42%, #f7f1e8 0%, #e7ded0 55%, #d3c6b5 100%);
+    radial-gradient(circle at 50% 35%, #f8f3ea 0%, #e9dfd1 48%, #d4c7b5 100%);
+
+  overflow-x:hidden;
+
+  position:relative;
 }
 
+/* =========================
+LAYER PREMIUM
+========================= */
+
+body::before{
+  content:"";
+
+  position:fixed;
+  inset:0;
+
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255,255,255,0.45), transparent 42%),
+    linear-gradient(to bottom, rgba(255,255,255,0.14), transparent);
+
+  pointer-events:none;
+
+  z-index:-1;
+}
+
+/* =========================
+HEADER
+========================= */
+
 .site-header{
-  height:90px;
+  height:92px;
+
   display:flex;
   align-items:center;
   justify-content:center;
-  background:rgba(255,255,255,0.78);
-  backdrop-filter:blur(18px);
+
   position:fixed;
-  width:100%;
   top:0;
+  left:0;
+
+  width:100%;
+
+  background:rgba(255,255,255,0.68);
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border-bottom:1px solid rgba(184,137,46,0.08);
+
+  z-index:1000;
 }
 
 .container{
   width:100%;
   max-width:1180px;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
+
   padding:0 24px;
 }
 
 .logo-img{
   height:78px;
+
+  transition:
+    transform .45s ease,
+    opacity .45s ease;
 }
+
+.logo-img:hover{
+  transform:scale(1.03);
+  opacity:.92;
+}
+
+/* =========================
+NAVIGATION
+========================= */
 
 .site-nav{
   display:flex;
@@ -47,155 +113,372 @@ body{
 }
 
 .site-nav a{
+  position:relative;
+
   text-decoration:none;
+
   font-size:12px;
   color:#5c564f;
-  letter-spacing:0.15em;
+
+  letter-spacing:0.16em;
+
+  transition:
+    color .35s ease,
+    opacity .35s ease,
+    transform .35s ease;
 }
 
-/* ===== HERO ===== */
+.site-nav a::after{
+  content:"";
+
+  position:absolute;
+  left:0;
+  bottom:-8px;
+
+  width:0%;
+  height:1px;
+
+  background:#b8892e;
+
+  transition:width .35s ease;
+}
+
+.site-nav a:hover{
+  color:#b8892e;
+  transform:translateY(-1px);
+}
+
+.site-nav a:hover::after{
+  width:100%;
+}
+
+/* =========================
+HERO
+========================= */
+
 .hero{
   min-height:100vh;
+
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+
   text-align:center;
-  padding-top:90px;
+
+  padding:
+    120px
+    24px
+    60px;
+
+  position:relative;
 }
+
+/* =========================
+TITLE
+========================= */
 
 .title{
-  font-size:clamp(44px,5vw,88px);
+  font-size:clamp(44px,5vw,92px);
+
   letter-spacing:0.20em;
   font-weight:500;
+
+  color:#171717;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.6);
+
+  animation:fadeUp 1.2s ease;
 }
 
-/* ===== AXE CENTRAL AVEC L'ÉTOILE ET LIGNES ===== */
+/* =========================
+AXIS
+========================= */
+
 .axis{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:28px;
-  margin-top:26px;
+
+  gap:26px;
+
+  margin-top:30px;
+
+  animation:fadeUp 1.5s ease;
 }
 
-.star-container {
-  display: flex;
-  align-items: center;
+.star-container{
+  display:flex;
+  align-items:center;
 }
 
-.gold-star {
-  width: 72px;
-  height: 72px;
-  background-color: transparent;
-  border: none;
-  position: relative;
+/* =========================
+STAR
+========================= */
+
+.gold-star{
+  width:24px;
+  height:24px;
+
+  background:#b8892e;
+
+  clip-path:polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+
+  filter:
+    drop-shadow(0 0 6px rgba(184,137,46,0.35));
 }
 
-.gold-star:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  width: 36px;
-  height: 36px;
-  background-color: #b8892e;
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+.gold-line{
+  width:140px;
+  height:1px;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(184,137,46,0),
+      rgba(184,137,46,0.95),
+      rgba(184,137,46,0)
+    );
+
+  margin:0 22px;
 }
 
-.gold-line {
-  width: 160px;
-  height: 2px;
-  background-color: #b8892e;
-  margin: 0 10px;
-}
+/* =========================
+NAME
+========================= */
 
 .name{
+  font-size:17px;
+
+  letter-spacing:0.52em;
+
+  color:#5e564f;
+
+  text-transform:uppercase;
+}
+
+/* =========================
+TEXT BLOCK
+========================= */
+
+.cta-text{
+  position:relative;
+
+  margin-top:42px;
+
+  max-width:620px;
+
+  padding:
+    28px
+    34px;
+
   font-size:18px;
-  letter-spacing:0.5em;
-  color:#5c564f;
+  line-height:2;
+
+  color:#5a534b;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.42),
+      rgba(255,255,255,0.16)
+    );
+
+  border:
+    1px solid rgba(184,137,46,0.10);
+
+  border-radius:20px;
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.04),
+    0 0 24px rgba(212,175,55,0.08);
+
+  animation:fadeUp 1.8s ease;
 }
 
-.text{
-  margin-top:28px;
-  max-width:420px;
-  font-size:16px;
-  line-height:2.1;
-  color:#5c564f;
+.cta-text::before{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:120px;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(184,137,46,0.8),
+      transparent
+    );
 }
 
-.cta-button {
-  margin-top:40px;
-  padding:12px 36px;
-  border:1px solid #b8892e;
+/* =========================
+BUTTON
+========================= */
+
+.cta-button{
+  margin-top:34px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:
+    16px
+    38px;
+
+  border:1px solid rgba(184,137,46,0.75);
+
   color:#b8892e;
-  background-color: transparent;
-  text-decoration: none;
-  letter-spacing:0.14em;
-  font-size:16px;
-  border-radius:4px;
-  transition: all 0.3s ease;
+
+  background:
+    rgba(255,255,255,0.32);
+
+  text-decoration:none;
+
+  letter-spacing:0.16em;
+  font-size:13px;
+
+  border-radius:999px;
+
+  transition:
+    background .35s ease,
+    color .35s ease,
+    transform .35s ease,
+    box-shadow .35s ease;
+
+  animation:fadeUp 2s ease;
 }
 
-.cta-button:hover {
-  background-color: #b8892e;
-  color: white;
-  transform: translateY(-3px);
+.cta-button:hover{
+  background:#b8892e;
+  color:white;
+
+  transform:
+    translateY(-3px)
+    scale(1.02);
+
+  box-shadow:
+    0 12px 26px rgba(184,137,46,0.22);
 }
 
-/* ===== BACKGROUND AND BUTTON STYLES ===== */
-.cta-text {
-  font-size:20px;
-  line-height:1.6;
-  color:#5c564f;
-  background: radial-gradient(circle at 50% 50%, #f7f1e8 0%, #e7ded0 60%, #d3c6b5 100%);
-  padding:20px;
-  border-radius:8px;
-  margin-top:40px;
-  max-width:600px;
-  text-align:center;
-  box-shadow: 0 0 12px rgba(212,175,55,0.5);
+/* =========================
+ANIMATION
+========================= */
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(26px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
 }
+
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:768px){
+
+  .site-header{
+    height:auto;
+    padding:12px 0;
+  }
+
   .container{
     flex-direction:column;
-    gap:8px;
+    gap:10px;
   }
 
   .site-nav{
     flex-wrap:wrap;
     justify-content:center;
-    gap:12px;
+
+    gap:14px;
+  }
+
+  .site-nav a{
+    font-size:11px;
   }
 
   .logo-img{
     height:58px;
   }
 
+  .hero{
+    padding-top:170px;
+  }
+
   .title{
-    font-size:32px;
-    letter-spacing:0.16em;
+    font-size:48px;
+
+    letter-spacing:0.14em;
+
+    line-height:1.1;
   }
 
-  .axis{
-    gap:22px;
-    margin-top:20px;
+  .gold-line{
+    width:76px;
+    margin:0 12px;
   }
 
-  .text{
-    font-size:14px;
-    margin-top:24px;
+  .name{
+    font-size:13px;
+    letter-spacing:0.34em;
   }
 
-  .cta-button {
-    font-size:14px;
+  .cta-text{
+    max-width:100%;
+
+    padding:
+      22px
+      20px;
+
+    font-size:15px;
+    line-height:1.9;
+
+    margin-top:34px;
   }
 
-  .cta-text {
-    font-size:16px;
+  .cta-button{
+    margin-top:26px;
+
+    width:100%;
+    max-width:300px;
+
+    font-size:11px;
+
+    padding:
+      15px
+      20px;
   }
+
 }
 
 </style>
@@ -204,8 +487,13 @@ body{
 <body>
 
 <header class="site-header">
+
   <div class="container">
-    <a href="/index.html"><img src="/logo.png" class="logo-img" alt="L'INTERVALLE"></a>
+
+    <a href="/index.html">
+      <img src="/logo.png" class="logo-img" alt="L'INTERVALLE">
+    </a>
+
     <nav class="site-nav">
       <a href="/pages/accompagnement.html">Accompagnement</a>
       <a href="/pages/entreprises.html">Entreprises</a>
@@ -213,26 +501,42 @@ body{
       <a href="/pages/histoire.html">L’INTERVALLE</a>
       <a href="/pages/contact.html">Contact</a>
     </nav>
+
   </div>
+
 </header>
 
 <section class="hero">
-  <div class="title">L’INTERVALLE</div>
 
-  <div class="axis">
-    <div class="star-container">
-      <div class="gold-line"></div>
-      <div class="gold-star"></div>
-      <div class="gold-line"></div>
-    </div>
-    <div class="name">MARIE MÄNNLEIN</div>
+  <div class="title">
+    L’INTERVALLE
   </div>
 
-  <!-- New Text and Button Section -->
+  <div class="axis">
+
+    <div class="star-container">
+
+      <div class="gold-line"></div>
+
+      <div class="gold-star"></div>
+
+      <div class="gold-line"></div>
+
+    </div>
+
+    <div class="name">
+      MARIE MÄNNLEIN
+    </div>
+
+  </div>
+
   <div class="cta-text">
     Un espace pour se reconnecter, explorer ses racines et se réajuster à son rythme.
   </div>
-  <a href="/pages/contact.html" class="cta-button">Contactez-moi pour en discuter</a>
+
+  <a href="/pages/contact.html" class="cta-button">
+    Contactez-moi pour en discuter
+  </a>
 
 </section>
 
