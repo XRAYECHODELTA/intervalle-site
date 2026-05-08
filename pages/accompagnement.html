@@ -1,282 +1,634 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accompagnement — L’INTERVALLE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accompagnement — L’INTERVALLE</title>
 
-  <style>
-    /* RESET STYLES */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
 
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      color: #1b1b1a;
-      background: radial-gradient(circle at 50% 42%, #f7f1e8 0%, #e7ded0 55%, #d3c6b5 100%);
-      animation: fadeInBackground 1.5s ease-in-out;
-    }
+/* =========================
+RESET
+========================= */
 
-    /* Animation de fond */
-    @keyframes fadeInBackground {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    /* HEADER */
-    .site-header {
-      height: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(18px);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    .container {
-      width: 100%;
-      max-width: 1040px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 24px;
-    }
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  color:#1b1b1a;
 
-    .logo-img {
-      height: 70px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
+  background:
+    radial-gradient(circle at 50% 35%, #f8f3ea 0%, #e9dfd1 48%, #d4c7b5 100%);
 
-    .logo-img:hover {
-      transform: scale(1.1);
-    }
+  overflow-x:hidden;
 
-    .site-nav {
-      display: flex;
-      gap: 36px;
-    }
+  position:relative;
 
-    .site-nav a {
-      text-decoration: none;
-      font-size: 12px;
-      color: #5c564f;
-      letter-spacing: 0.15em;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
+  animation:fadePage 1.2s ease;
+}
 
-    .site-nav a:hover {
-      color: #b8892e;
-      transform: translateY(-3px);
-    }
+body::before{
+  content:"";
 
-    /* PAGE */
-    .page {
-      padding-top: 120px;
-      max-width: 950px;
-      margin: auto;
-      text-align: center;
-      animation: fadeInContent 1.5s ease-out;
-    }
+  position:fixed;
+  inset:0;
 
-    @keyframes fadeInContent {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255,255,255,0.45), transparent 42%),
+    linear-gradient(to bottom, rgba(255,255,255,0.14), transparent);
 
-    /* HERO */
-    .hero {
-      margin-bottom: 40px; /* Réduit l'espace sous le hero */
-      text-align: center;
-      animation: fadeIn 1s ease-out;
-    }
+  pointer-events:none;
 
-    .title {
-      font-size: clamp(36px, 4vw, 48px);
-      letter-spacing: 0.14em;
-      margin-bottom: 16px; /* Espacement réduit entre titre et sous-titre */
-    }
+  z-index:-1;
+}
 
-    .subtitle {
-      max-width: 500px;
-      margin: auto;
-      font-size: 17px;
-      line-height: 2.1;
-      color: #5c564f;
-    }
+/* =========================
+ANIMATION
+========================= */
 
-    /* SECTIONS */
-    .section {
-      margin: 30px 0; /* Espacement réduit entre les sections */
-      opacity: 0;
-      animation: fadeInSection 1.5s ease-out forwards;
-    }
+@keyframes fadePage{
 
-    @keyframes fadeInSection {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+  from{
+    opacity:0;
+  }
 
-    .section::before {
-      content: "★";
-      font-size: 24px;
-      color: #b8892e;
-      display: block;
-      text-align: center;
-      margin: 10px 0;
-      letter-spacing: 4px;
-    }
+  to{
+    opacity:1;
+  }
 
-    .section-title {
-      font-size: 22px;
-      letter-spacing: 0.14em;
-      margin-bottom: 16px; /* Espacement réduit entre le titre et le texte */
-      text-align: center;
-    }
+}
 
-    .section-text {
-      max-width: 580px;
-      margin: auto;
-      font-size: 16px;
-      line-height: 2.2;
-      color: #5c564f;
-      text-align: center;
-    }
+@keyframes fadeUp{
 
-    /* CTA */
-    .cta {
-      margin: 80px 0 40px; /* Espacement réduit autour du CTA */
-      text-align: center;
-    }
+  from{
+    opacity:0;
+    transform:translateY(24px);
+  }
 
-    .cta a {
-      display: inline-block;
-      padding: 16px 36px;
-      border: 1px solid #b8892e;
-      color: #b8892e;
-      text-decoration: none;
-      letter-spacing: 0.14em;
-      font-size: 12px;
-      transition: all 0.35s ease;
-      transform: translateY(0);
-    }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 
-    .cta a:hover {
-      background: #b8892e;
-      color: white;
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    }
+}
 
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        gap: 8px;
-      }
+@keyframes shine{
 
-      .site-nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-      }
+  0%{
+    left:-40%;
+  }
 
-      .logo-img {
-        height: 52px;
-      }
+  100%{
+    left:140%;
+  }
 
-      .title {
-        font-size: 28px;
-      }
+}
 
-      .subtitle {
-        font-size: 15px;
-      }
+/* =========================
+HEADER
+========================= */
 
-      .section-text {
-        font-size: 15px;
-      }
+.site-header{
+  height:92px;
 
-      .section-title {
-        text-align: center;
-      }
-    }
-  </style>
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  position:fixed;
+  top:0;
+  left:0;
+
+  width:100%;
+
+  background:rgba(255,255,255,0.68);
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border-bottom:1px solid rgba(184,137,46,0.08);
+
+  z-index:1000;
+}
+
+.container{
+  width:100%;
+  max-width:1180px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:0 24px;
+}
+
+/* =========================
+LOGO
+========================= */
+
+.logo-wrapper{
+  padding:8px;
+
+  border:1px solid rgba(122,95,52,0.35);
+
+  border-radius:4px;
+
+  background:rgba(255,255,255,0.18);
+
+  transition:
+    border-color .35s ease,
+    box-shadow .35s ease,
+    transform .35s ease;
+}
+
+.logo-wrapper:hover{
+  border-color:rgba(184,137,46,0.65);
+
+  box-shadow:
+    0 0 18px rgba(184,137,46,0.10);
+
+  transform:translateY(-1px);
+}
+
+.logo-img{
+  height:78px;
+
+  display:block;
+
+  transition:
+    transform .45s ease,
+    opacity .45s ease;
+}
+
+.logo-img:hover{
+  transform:scale(1.02);
+  opacity:.94;
+}
+
+/* =========================
+NAV
+========================= */
+
+.site-nav{
+  display:flex;
+  gap:36px;
+}
+
+.site-nav a{
+  position:relative;
+
+  text-decoration:none;
+
+  font-size:12px;
+  color:#5c564f;
+
+  letter-spacing:0.16em;
+
+  transition:
+    color .35s ease,
+    transform .35s ease;
+}
+
+.site-nav a::after{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  bottom:-8px;
+
+  width:0%;
+  height:1px;
+
+  background:#b8892e;
+
+  transition:width .35s ease;
+}
+
+.site-nav a:hover{
+  color:#b8892e;
+  transform:translateY(-1px);
+}
+
+.site-nav a:hover::after{
+  width:100%;
+}
+
+/* =========================
+PAGE
+========================= */
+
+.page{
+  max-width:980px;
+
+  margin:auto;
+
+  padding:
+    145px
+    24px
+    80px;
+
+  text-align:center;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+  margin-bottom:46px;
+
+  animation:fadeUp 1s ease;
+}
+
+.title{
+  font-size:clamp(40px,4vw,64px);
+
+  letter-spacing:0.12em;
+  font-weight:500;
+
+  line-height:1.25;
+
+  color:#171717;
+
+  margin-bottom:28px;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.6);
+}
+
+.subtitle{
+  position:relative;
+
+  width:fit-content;
+  max-width:760px;
+
+  margin:auto;
+
+  padding:
+    24px
+    34px;
+
+  font-size:18px;
+  line-height:2;
+
+  color:#5a534b;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.42),
+      rgba(255,255,255,0.16)
+    );
+
+  border:
+    1px solid rgba(184,137,46,0.12);
+
+  border-radius:22px;
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.04),
+    0 0 24px rgba(212,175,55,0.08);
+
+  overflow:hidden;
+}
+
+.subtitle::before{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:-40%;
+
+  width:30%;
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.75),
+      transparent
+    );
+
+  transform:skewX(-22deg);
+
+  animation:shine 5s ease-in-out infinite;
+}
+
+/* =========================
+SECTIONS
+========================= */
+
+.section{
+  position:relative;
+
+  margin:28px auto;
+
+  max-width:760px;
+
+  padding:
+    34px
+    36px;
+
+  border-radius:26px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.28),
+      rgba(255,255,255,0.12)
+    );
+
+  border:
+    1px solid rgba(184,137,46,0.08);
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.03);
+
+  transition:
+    transform .45s ease,
+    box-shadow .45s ease,
+    border-color .45s ease;
+
+  animation:fadeUp 1.2s ease;
+}
+
+.section:hover{
+  transform:translateY(-4px);
+
+  border-color:rgba(184,137,46,0.18);
+
+  box-shadow:
+    0 14px 34px rgba(0,0,0,0.05),
+    0 0 24px rgba(212,175,55,0.08);
+}
+
+.section::before{
+  content:"✦";
+
+  font-size:20px;
+
+  color:#b8892e;
+
+  display:block;
+
+  margin-bottom:18px;
+
+  opacity:.92;
+}
+
+.section-title{
+  font-size:18px;
+
+  letter-spacing:0.18em;
+
+  margin-bottom:18px;
+
+  color:#1e1e1e;
+}
+
+.section-text{
+  max-width:620px;
+
+  margin:auto;
+
+  font-size:17px;
+  line-height:2.2;
+
+  color:#5c564f;
+}
+
+/* =========================
+CTA
+========================= */
+
+.cta{
+  margin-top:54px;
+
+  animation:fadeUp 1.4s ease;
+}
+
+.cta a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:
+    16px
+    38px;
+
+  border:1px solid rgba(184,137,46,0.75);
+
+  color:#b8892e;
+
+  background:
+    rgba(255,255,255,0.30);
+
+  text-decoration:none;
+
+  letter-spacing:0.16em;
+  font-size:12px;
+
+  border-radius:999px;
+
+  transition:
+    background .35s ease,
+    color .35s ease,
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.cta a:hover{
+  background:#b8892e;
+  color:white;
+
+  transform:
+    translateY(-3px)
+    scale(1.02);
+
+  box-shadow:
+    0 12px 26px rgba(184,137,46,0.22);
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  .site-header{
+    height:auto;
+    padding:12px 0;
+  }
+
+  .container{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .site-nav{
+    flex-wrap:wrap;
+    justify-content:center;
+
+    gap:14px;
+  }
+
+  .site-nav a{
+    font-size:11px;
+  }
+
+  .logo-img{
+    height:58px;
+  }
+
+  .page{
+    padding-top:170px;
+  }
+
+  .title{
+    font-size:32px;
+
+    line-height:1.35;
+
+    letter-spacing:0.08em;
+  }
+
+  .subtitle{
+    width:100%;
+
+    padding:
+      20px
+      18px;
+
+    font-size:15px;
+
+    line-height:1.9;
+  }
+
+  .section{
+    padding:
+      28px
+      20px;
+  }
+
+  .section-title{
+    font-size:15px;
+
+    letter-spacing:0.14em;
+  }
+
+  .section-text{
+    font-size:15px;
+
+    line-height:2;
+  }
+
+  .cta a{
+    width:100%;
+    max-width:300px;
+
+    font-size:11px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <header class="site-header">
-    <div class="container">
-      <a href="/index.html"><img src="/logo.png" class="logo-img" alt="L’INTERVALLE"></a>
-      <nav class="site-nav">
-        <a href="/pages/accompagnement.html">Accompagnement</a>
-        <a href="/pages/entreprises.html">Entreprises</a>
-        <a href="/pages/distance.html">À distance</a>
-        <a href="/pages/histoire.html">L’INTERVALLE</a>
-        <a href="/pages/contact.html">Contact</a>
-      </nav>
+<header class="site-header">
+
+  <div class="container">
+
+    <a href="/index.html" class="logo-wrapper">
+      <img src="/logo.png" class="logo-img" alt="L’INTERVALLE">
+    </a>
+
+    <nav class="site-nav">
+      <a href="/pages/accompagnement.html">Accompagnement</a>
+      <a href="/pages/entreprises.html">Entreprises</a>
+      <a href="/pages/distance.html">À distance</a>
+      <a href="/pages/histoire.html">L’INTERVALLE</a>
+      <a href="/pages/contact.html">Contact</a>
+    </nav>
+
+  </div>
+
+</header>
+
+<main class="page">
+
+  <section class="hero">
+
+    <div class="title">
+      Un espace pour être accompagné
     </div>
-  </header>
 
-  <main class="page">
-    <section class="hero">
-      <div class="title">Un espace pour être accompagné</div>
-      <div class="subtitle">
-        Un espace pour déposer, comprendre et transformer <strong>ce qui se joue en vous, à votre rythme.</strong>
-      </div>
-    </section>
+    <div class="subtitle">
+      Un espace pour déposer, comprendre et transformer
+      <strong>ce qui se joue en vous, à votre rythme.</strong>
+    </div>
 
-    <section class="section">
-      <div class="section-title">Un travail en profondeur</div>
-      <div class="section-text">
-        Chaque accompagnement s’inscrit dans une démarche d’écoute, de présence et de compréhension de votre histoire personnelle.
-        Il ne s’agit pas d’appliquer des solutions, mais d’explorer ce qui cherche à émerger.
-      </div>
-    </section>
+  </section>
 
-    <section class="section">
-      <div class="section-title">Une approche ancrée</div>
-      <div class="section-text">
-        Le travail s’appuie sur le corps, la parole et la mémoire.
-        Il permet de remettre du mouvement là où quelque chose s’est figé.
-      </div>
-    </section>
+  <section class="section">
 
-    <section class="section">
-      <div class="section-title">Pour qui</div>
-      <div class="section-text">
-        Pour toute personne en transition, en questionnement ou en recherche d’un espace pour se retrouver.
-      </div>
-    </section>
+    <div class="section-title">
+      Un travail en profondeur
+    </div>
 
-    <section class="cta">
-      <a href="/pages/contact.html">Prendre rendez-vous</a>
-    </section>
-  </main>
+    <div class="section-text">
+      Chaque accompagnement s’inscrit dans une démarche d’écoute, de présence et de compréhension de votre histoire personnelle.
+      Il ne s’agit pas d’appliquer des solutions, mais d’explorer ce qui cherche à émerger.
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="section-title">
+      Une approche ancrée
+    </div>
+
+    <div class="section-text">
+      Le travail s’appuie sur le corps, la parole et la mémoire.
+      Il permet de remettre du mouvement là où quelque chose s’est figé.
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="section-title">
+      Pour qui
+    </div>
+
+    <div class="section-text">
+      Pour toute personne en transition, en questionnement ou en recherche d’un espace pour se retrouver.
+    </div>
+
+  </section>
+
+  <section class="cta">
+    <a href="/pages/contact.html">
+      Prendre rendez-vous
+    </a>
+  </section>
+
+</main>
 
 </body>
 </html>
