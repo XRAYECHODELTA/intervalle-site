@@ -80,18 +80,6 @@ ANIMATIONS
 
 }
 
-@keyframes shine{
-
-  0%{
-    left:-40%;
-  }
-
-  100%{
-    left:140%;
-  }
-
-}
-
 /* =========================
 HEADER
 ========================= */
@@ -325,30 +313,6 @@ HERO SUB
   animation:fadeUp 1.3s ease;
 }
 
-.hero-sub::before{
-  content:"";
-
-  position:absolute;
-
-  top:0;
-  left:-40%;
-
-  width:30%;
-  height:100%;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,0.75),
-      transparent
-    );
-
-  transform:skewX(-22deg);
-
-  animation:shine 5s ease-in-out infinite;
-}
-
 /* =========================
 TEXT BLOCKS
 ========================= */
@@ -423,32 +387,6 @@ HIGHLIGHT BLOCK
 
   border:
     1px solid rgba(184,137,46,0.16);
-
-  overflow:hidden;
-}
-
-.highlight::before{
-  content:"";
-
-  position:absolute;
-
-  top:0;
-  left:-40%;
-
-  width:30%;
-  height:100%;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,0.55),
-      transparent
-    );
-
-  transform:skewX(-22deg);
-
-  animation:shine 7s ease-in-out infinite;
 }
 
 /* =========================
