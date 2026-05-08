@@ -8,7 +8,10 @@
 
 <style>
 
-/* RESET */
+/* =========================
+RESET
+========================= */
+
 *{
   margin:0;
   padding:0;
@@ -24,23 +27,45 @@ body{
   color:#1b1b1a;
 
   background:
-    radial-gradient(circle at 50% 42%, #f7f1e8 0%, #e7ded0 55%, #d3c6b5 100%);
+    radial-gradient(circle at 50% 30%, #f8f3ea 0%, #e8dfd2 54%, #d4c7b7 100%);
 
   overflow-x:hidden;
 
-  animation:pageFade 1.2s ease;
+  position:relative;
+
+  animation:pageFade 1s ease;
+}
+
+body::before{
+  content:"";
+
+  position:fixed;
+  inset:0;
+
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255,255,255,0.34), transparent 38%),
+    linear-gradient(to bottom, rgba(255,255,255,0.08), transparent);
+
+  pointer-events:none;
+
+  z-index:-1;
 }
 
 @keyframes pageFade{
+
   from{
     opacity:0;
   }
+
   to{
     opacity:1;
   }
+
 }
 
-/* HEADER */
+/* =========================
+HEADER
+========================= */
 
 .site-header{
   position:fixed;
@@ -48,25 +73,25 @@ body{
   left:0;
 
   width:100%;
-  height:90px;
+  height:92px;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  background:rgba(255,255,255,0.76);
+  background:rgba(255,255,255,0.74);
 
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
 
-  border-bottom:1px solid rgba(0,0,0,0.05);
+  border-bottom:1px solid rgba(184,137,46,0.08);
 
   z-index:999;
 }
 
 .container{
   width:100%;
-  max-width:1080px;
+  max-width:1180px;
 
   display:flex;
   align-items:center;
@@ -75,15 +100,52 @@ body{
   padding:0 24px;
 }
 
-.logo-img{
-  height:70px;
+/* =========================
+LOGO
+========================= */
 
-  transition:transform .35s ease;
+.logo-wrapper{
+  padding:8px;
+
+  border:1px solid rgba(122,95,52,0.26);
+
+  border-radius:4px;
+
+  background:rgba(255,255,255,0.12);
+
+  transition:
+    border-color .35s ease,
+    box-shadow .35s ease,
+    transform .35s ease;
+}
+
+.logo-wrapper:hover{
+  border-color:rgba(184,137,46,0.55);
+
+  box-shadow:
+    0 0 18px rgba(184,137,46,0.08);
+
+  transform:translateY(-1px);
+}
+
+.logo-img{
+  height:72px;
+
+  display:block;
+
+  transition:
+    transform .35s ease,
+    opacity .35s ease;
 }
 
 .logo-img:hover{
-  transform:scale(1.04);
+  transform:scale(1.02);
+  opacity:.95;
 }
+
+/* =========================
+NAV
+========================= */
 
 .site-nav{
   display:flex;
@@ -92,6 +154,8 @@ body{
 }
 
 .site-nav a{
+  position:relative;
+
   text-decoration:none;
 
   font-size:12px;
@@ -104,71 +168,97 @@ body{
     transform .3s ease;
 }
 
+.site-nav a::after{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  bottom:-8px;
+
+  width:0%;
+  height:1px;
+
+  background:#b8892e;
+
+  transition:width .35s ease;
+}
+
 .site-nav a:hover{
   color:#b8892e;
+
   transform:translateY(-2px);
 }
 
-/* PAGE */
+.site-nav a:hover::after{
+  width:100%;
+}
+
+/* =========================
+PAGE
+========================= */
 
 .page{
   width:100%;
-  max-width:940px;
+  max-width:980px;
 
   margin:auto;
 
   padding:
-    135px
+    145px
     24px
-    40px;
+    70px;
 
   text-align:center;
 }
 
-/* HERO */
+/* =========================
+HERO
+========================= */
 
 .hero-section{
-  margin-bottom:34px;
-
-  animation:fadeUp 1s ease;
+  margin-bottom:38px;
 }
 
 .page-title{
-  font-size:clamp(42px,4vw,56px);
+  font-size:clamp(44px,4vw,66px);
 
-  letter-spacing:0.14em;
+  letter-spacing:0.16em;
   font-weight:400;
 
-  margin-bottom:18px;
+  margin-bottom:22px;
 
-  color:#161616;
+  color:#151515;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.6);
 }
 
 .divider{
-  width:100%;
-
   display:flex;
   justify-content:center;
 
-  margin-bottom:22px;
+  margin-bottom:24px;
 
   opacity:.92;
 }
 
 .divider svg{
-  width:260px;
-  height:auto;
+  width:300px;
+  max-width:100%;
 }
 
 .hero-sub{
   font-size:18px;
 
-  color:#5f5951;
+  color:#6a6259;
 
-  letter-spacing:0.08em;
+  letter-spacing:0.10em;
 }
 
-/* CONTACT BLOCK */
+/* =========================
+CONTACT BLOCK
+========================= */
 
 .text-block{
   position:relative;
@@ -177,29 +267,32 @@ body{
 
   margin:
     0 auto
-    34px;
+    38px;
 
   padding:
-    42px
-    42px;
+    48px
+    48px;
 
-  border:1px solid rgba(184,137,46,0.12);
-
-  border-radius:30px;
+  border-radius:34px;
 
   background:
     linear-gradient(
       180deg,
-      rgba(255,255,255,0.46) 0%,
-      rgba(255,255,255,0.18) 100%
+      rgba(255,255,255,0.42),
+      rgba(255,255,255,0.16)
     );
+
+  border:
+    1px solid rgba(184,137,46,0.10);
 
   backdrop-filter:blur(10px);
 
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.04);
+  overflow:hidden;
 
-  animation:fadeUp 1.2s ease;
+  transition:
+    transform .45s ease,
+    border-color .45s ease,
+    box-shadow .45s ease;
 }
 
 .text-block::before{
@@ -212,63 +305,106 @@ body{
 
   transform:translateX(-50%);
 
-  width:120px;
+  width:140px;
   height:1px;
 
   background:
     linear-gradient(
       90deg,
       transparent,
-      #c9a25d,
+      #cba45f,
       transparent
     );
 }
 
+.text-block:hover{
+  transform:translateY(-3px);
+
+  border-color:rgba(184,137,46,0.20);
+
+  box-shadow:
+    0 18px 42px rgba(0,0,0,0.04),
+    0 0 22px rgba(212,175,55,0.05);
+}
+
 .text-block p{
-  font-size:18px;
-  line-height:2;
+  font-size:20px;
+  line-height:2.15;
 
   color:#4e4942;
 }
 
 .text-block p + p{
-  margin-top:22px;
+  margin-top:26px;
 }
 
-/* CONTACT INFOS */
+/* =========================
+CONTACT INFOS
+========================= */
+
+.contact-name{
+  color:#2f2b27;
+
+  letter-spacing:0.04em;
+}
 
 .contact-links{
-  margin-top:8px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+
+  margin-top:10px;
 }
 
-.contact-links a{
-  color:#1b1b1a;
+.contact-item{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
 
+  font-size:21px;
+
+  color:#2f2b27;
+}
+
+.contact-icon{
+  font-size:20px;
+
+  color:#b8892e;
+}
+
+.contact-item a{
   text-decoration:none;
+
+  color:#2f2b27;
 
   transition:
     color .3s ease,
     opacity .3s ease;
 }
 
-.contact-links a:hover{
+.contact-item a:hover{
   color:#b8892e;
 }
 
-.contact-name{
-  font-size:20px;
+/* =========================
+BOTTOM TEXT
+========================= */
 
-  letter-spacing:0.05em;
+.contact-note{
+  max-width:620px;
 
-  color:#2f2b27;
+  margin:auto;
+
+  color:#5d564d;
 }
 
-/* CTA */
+/* =========================
+CTA
+========================= */
 
 .cta{
-  margin-top:12px;
-
-  animation:fadeUp 1.4s ease;
+  margin-top:10px;
 }
 
 .cta-button{
@@ -277,21 +413,22 @@ body{
   justify-content:center;
 
   padding:
-    16px
-    34px;
+    17px
+    40px;
 
-  border:1px solid #b8892e;
+  border:1px solid rgba(184,137,46,0.82);
 
   border-radius:999px;
 
-  background:rgba(255,255,255,0.42);
+  background:
+    rgba(255,255,255,0.30);
 
   color:#b8892e;
 
   text-decoration:none;
 
   font-size:12px;
-  letter-spacing:0.18em;
+  letter-spacing:0.20em;
 
   transition:
     transform .35s ease,
@@ -302,6 +439,7 @@ body{
 
 .cta-button:hover{
   background:#b8892e;
+
   color:white;
 
   transform:
@@ -309,26 +447,12 @@ body{
     scale(1.03);
 
   box-shadow:
-    0 12px 30px rgba(184,137,46,0.25);
+    0 12px 28px rgba(184,137,46,0.22);
 }
 
-/* ANIMATIONS */
-
-@keyframes fadeUp{
-
-  from{
-    opacity:0;
-    transform:translateY(24px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-
-}
-
-/* MOBILE */
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:768px){
 
@@ -343,12 +467,13 @@ body{
   }
 
   .logo-img{
-    height:54px;
+    height:56px;
   }
 
   .site-nav{
     flex-wrap:wrap;
     justify-content:center;
+
     gap:14px;
   }
 
@@ -357,30 +482,39 @@ body{
   }
 
   .page{
-    padding-top:150px;
+    padding-top:165px;
   }
 
   .page-title{
     font-size:34px;
+
+    letter-spacing:0.10em;
   }
 
   .hero-sub{
-    font-size:16px;
+    font-size:15px;
   }
 
   .text-block{
-    padding:30px 24px;
+    padding:
+      32px
+      22px;
 
     border-radius:24px;
   }
 
   .text-block p{
     font-size:16px;
-    line-height:1.9;
+
+    line-height:2;
   }
 
-  .contact-name{
-    font-size:18px;
+  .contact-item{
+    flex-direction:column;
+
+    gap:6px;
+
+    font-size:17px;
   }
 
 }
@@ -394,7 +528,7 @@ body{
 
   <div class="container">
 
-    <a href="/index.html">
+    <a href="/index.html" class="logo-wrapper">
       <img src="/logo.png" class="logo-img" alt="L’INTERVALLE">
     </a>
 
@@ -448,27 +582,41 @@ body{
 
     <p>
       Vous pouvez contacter
-      <span class="contact-name">Marie Männlein</span>
+      <span class="contact-name">
+        Marie Männlein
+      </span>
       directement :
     </p>
 
-    <p class="contact-links">
+    <div class="contact-links">
 
-      📞
-      <a href="tel:0661582369">
-        06 61 58 23 69
-      </a>
+      <div class="contact-item">
 
-      <br><br>
+        <span class="contact-icon">
+          ✦
+        </span>
 
-      ✉️
-      <a href="mailto:marie@lintervalle.live">
-        marie@lintervalle.live
-      </a>
+        <a href="tel:0661582369">
+          06 61 58 23 69
+        </a>
 
-    </p>
+      </div>
 
-    <p>
+      <div class="contact-item">
+
+        <span class="contact-icon">
+          ✦
+        </span>
+
+        <a href="mailto:marie@lintervalle.live">
+          marie@lintervalle.live
+        </a>
+
+      </div>
+
+    </div>
+
+    <p class="contact-note">
       Chaque demande reçoit une réponse attentive,
       confidentielle et personnalisée.
     </p>
