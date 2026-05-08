@@ -8,7 +8,10 @@
 
 <style>
 
-/* RESET */
+/* =========================
+RESET
+========================= */
+
 *{
   margin:0;
   padding:0;
@@ -24,48 +27,120 @@ body{
   color:#1b1b1a;
 
   background:
-    radial-gradient(circle at 50% 42%, #f7f1e8 0%, #e7ded0 55%, #d3c6b5 100%);
+    radial-gradient(circle at 50% 32%, #f8f3ea 0%, #e8dfd2 52%, #d5c8b7 100%);
 
   overflow-x:hidden;
 
   animation:pageFade 1.2s ease;
+
+  position:relative;
 }
 
+body::before{
+  content:"";
+
+  position:fixed;
+  inset:0;
+
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,255,255,0.38), transparent 38%),
+    linear-gradient(to bottom, rgba(255,255,255,0.12), transparent);
+
+  pointer-events:none;
+
+  z-index:-1;
+}
+
+/* =========================
+ANIMATIONS
+========================= */
+
 @keyframes pageFade{
+
   from{
     opacity:0;
   }
+
   to{
     opacity:1;
   }
+
 }
 
-/* HEADER */
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(26px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+@keyframes glow{
+
+  0%{
+    box-shadow:
+      0 0 0 rgba(212,175,55,0);
+  }
+
+  50%{
+    box-shadow:
+      0 0 34px rgba(212,175,55,0.10);
+  }
+
+  100%{
+    box-shadow:
+      0 0 0 rgba(212,175,55,0);
+  }
+
+}
+
+@keyframes shine{
+
+  0%{
+    left:-40%;
+  }
+
+  100%{
+    left:140%;
+  }
+
+}
+
+/* =========================
+HEADER
+========================= */
 
 .site-header{
   position:fixed;
   top:0;
   left:0;
+
   width:100%;
-  height:90px;
+  height:92px;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  background:rgba(255,255,255,0.76);
+  background:rgba(255,255,255,0.70);
 
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
 
-  border-bottom:1px solid rgba(0,0,0,0.05);
+  border-bottom:1px solid rgba(184,137,46,0.08);
 
   z-index:999;
 }
 
 .container{
   width:100%;
-  max-width:1080px;
+  max-width:1180px;
 
   display:flex;
   align-items:center;
@@ -74,14 +149,52 @@ body{
   padding:0 24px;
 }
 
+/* =========================
+LOGO
+========================= */
+
+.logo-wrapper{
+  padding:8px;
+
+  border:1px solid rgba(122,95,52,0.30);
+
+  border-radius:4px;
+
+  background:rgba(255,255,255,0.14);
+
+  transition:
+    border-color .35s ease,
+    box-shadow .35s ease,
+    transform .35s ease;
+}
+
+.logo-wrapper:hover{
+  border-color:rgba(184,137,46,0.55);
+
+  box-shadow:
+    0 0 18px rgba(184,137,46,0.10);
+
+  transform:translateY(-1px);
+}
+
 .logo-img{
-  height:70px;
-  transition:transform .35s ease;
+  height:74px;
+
+  display:block;
+
+  transition:
+    transform .4s ease,
+    opacity .4s ease;
 }
 
 .logo-img:hover{
-  transform:scale(1.04);
+  transform:scale(1.02);
+  opacity:.95;
 }
+
+/* =========================
+NAV
+========================= */
 
 .site-nav{
   display:flex;
@@ -90,86 +203,124 @@ body{
 }
 
 .site-nav a{
+  position:relative;
+
   text-decoration:none;
+
   font-size:12px;
   letter-spacing:0.16em;
+
   color:#5c564f;
 
   transition:
     color .3s ease,
-    transform .3s ease,
-    opacity .3s ease;
+    transform .3s ease;
+}
+
+.site-nav a::after{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  bottom:-8px;
+
+  width:0%;
+  height:1px;
+
+  background:#b8892e;
+
+  transition:width .35s ease;
 }
 
 .site-nav a:hover{
   color:#b8892e;
+
   transform:translateY(-2px);
 }
 
-/* PAGE */
+.site-nav a:hover::after{
+  width:100%;
+}
+
+/* =========================
+PAGE
+========================= */
 
 .page{
   width:100%;
-  max-width:940px;
+  max-width:1040px;
 
   margin:auto;
 
   padding:
-    135px
+    145px
     24px
-    40px;
+    70px;
 
   text-align:center;
 }
 
-/* HERO */
+/* =========================
+HERO
+========================= */
 
 .hero-section{
-  margin-bottom:36px;
+  margin-bottom:34px;
 
   animation:fadeUp 1s ease;
 }
 
 .page-title{
-  font-size:clamp(40px,4vw,54px);
+  font-size:clamp(44px,4vw,66px);
 
-  letter-spacing:0.14em;
+  letter-spacing:0.16em;
   font-weight:400;
 
-  margin-bottom:18px;
-
   color:#161616;
+
+  margin-bottom:22px;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.6);
 }
 
+/* =========================
+DIVIDER
+========================= */
+
 .divider{
-  width:100%;
   display:flex;
   justify-content:center;
 
-  margin-bottom:24px;
-
-  opacity:.9;
+  margin-bottom:28px;
 }
 
 .divider svg{
-  width:260px;
-  height:auto;
+  width:320px;
+  max-width:100%;
 }
 
+/* =========================
+SUBTITLE
+========================= */
+
 .hero-sub{
-  max-width:720px;
-
-  margin:auto;
-
-  font-size:18px;
+  font-size:20px;
   line-height:1.8;
 
   color:#5f5951;
 
   letter-spacing:0.03em;
+
+  max-width:720px;
+
+  margin:auto;
 }
 
-/* TEXT BLOCK */
+/* =========================
+TEXT BLOCK
+========================= */
 
 .text-block{
   position:relative;
@@ -178,32 +329,61 @@ body{
 
   margin:
     0 auto
-    40px;
+    44px;
 
   padding:
-    34px
-    38px;
+    44px
+    42px;
 
-  border:1px solid rgba(184,137,46,0.14);
+  border-radius:34px;
 
   background:
     linear-gradient(
       180deg,
-      rgba(255,255,255,0.42) 0%,
-      rgba(255,255,255,0.16) 100%
+      rgba(255,255,255,0.44),
+      rgba(255,255,255,0.16)
     );
+
+  border:
+    1px solid rgba(184,137,46,0.10);
 
   backdrop-filter:blur(10px);
 
-  border-radius:28px;
+  overflow:hidden;
 
   box-shadow:
-    0 10px 40px rgba(0,0,0,0.04);
+    0 14px 44px rgba(0,0,0,0.04);
 
-  animation:fadeUp 1.2s ease;
+  animation:
+    fadeUp 1.2s ease,
+    glow 6s ease-in-out infinite;
 }
 
 .text-block::before{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:-40%;
+
+  width:30%;
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.65),
+      transparent
+    );
+
+  transform:skewX(-24deg);
+
+  animation:shine 7s ease-in-out infinite;
+}
+
+.text-block::after{
   content:"";
 
   position:absolute;
@@ -213,32 +393,39 @@ body{
 
   transform:translateX(-50%);
 
-  width:120px;
+  width:140px;
   height:1px;
 
-  background:linear-gradient(
-    90deg,
-    transparent,
-    #c9a25d,
-    transparent
-  );
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #caa35d,
+      transparent
+    );
 }
 
 .text-block p{
-  font-size:18px;
-  line-height:2.1;
+  position:relative;
 
-  color:#4e4942;
+  font-size:20px;
+  line-height:2.2;
+
+  color:#4d4841;
+
+  z-index:2;
 }
 
 .text-block p + p{
-  margin-top:18px;
+  margin-top:24px;
 }
 
-/* CTA */
+/* =========================
+CTA
+========================= */
 
 .cta{
-  margin-top:20px;
+  margin-top:10px;
 
   animation:fadeUp 1.4s ease;
 }
@@ -249,10 +436,10 @@ body{
   justify-content:center;
 
   padding:
-    16px
-    34px;
+    17px
+    38px;
 
-  border:1px solid #b8892e;
+  border:1px solid rgba(184,137,46,0.82);
 
   text-decoration:none;
 
@@ -263,7 +450,8 @@ body{
 
   border-radius:999px;
 
-  background:rgba(255,255,255,0.42);
+  background:
+    rgba(255,255,255,0.34);
 
   transition:
     transform .35s ease,
@@ -274,6 +462,7 @@ body{
 
 .cta-button:hover{
   background:#b8892e;
+
   color:white;
 
   transform:
@@ -281,24 +470,12 @@ body{
     scale(1.03);
 
   box-shadow:
-    0 12px 30px rgba(184,137,46,0.25);
+    0 14px 30px rgba(184,137,46,0.24);
 }
 
-/* ANIMATIONS */
-
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(24px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* MOBILE */
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:768px){
 
@@ -313,12 +490,13 @@ body{
   }
 
   .logo-img{
-    height:54px;
+    height:56px;
   }
 
   .site-nav{
     flex-wrap:wrap;
     justify-content:center;
+
     gap:14px;
   }
 
@@ -327,26 +505,38 @@ body{
   }
 
   .page{
-    padding-top:150px;
+    padding-top:165px;
   }
 
   .page-title{
     font-size:34px;
+
+    letter-spacing:0.10em;
   }
 
   .hero-sub{
     font-size:16px;
+
     line-height:1.7;
   }
 
   .text-block{
-    padding:28px 22px;
-    border-radius:22px;
+    padding:
+      30px
+      22px;
+
+    border-radius:24px;
   }
 
   .text-block p{
     font-size:16px;
+
     line-height:2;
+  }
+
+  .cta-button{
+    width:100%;
+    max-width:280px;
   }
 
 }
@@ -360,7 +550,7 @@ body{
 
   <div class="container">
 
-    <a href="/index.html">
+    <a href="/index.html" class="logo-wrapper">
       <img src="/logo.png" class="logo-img" alt="L’INTERVALLE">
     </a>
 
@@ -378,7 +568,6 @@ body{
 
 <main class="page">
 
-  <!-- HERO -->
   <section class="hero-section">
 
     <h1 class="page-title">
@@ -409,7 +598,6 @@ body{
 
   </section>
 
-  <!-- CONTENU -->
   <section class="text-block">
 
     <p>
@@ -424,7 +612,6 @@ body{
 
   </section>
 
-  <!-- CTA -->
   <section class="cta">
 
     <a href="/pages/contact.html" class="cta-button">
