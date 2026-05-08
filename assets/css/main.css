@@ -649,3 +649,141 @@ footer{
   }
 
 }
+/* ================================================= */
+/* ============ MOBILE FINAL OVERRIDE ============== */
+/* ================================================= */
+
+@media screen and (max-width:768px){
+
+  /* ===== HEADER ===== */
+
+  .site-header{
+    padding:10px 0;
+  }
+
+  .container{
+    padding:0 10px;
+
+    gap:8px;
+  }
+
+  .logo-wrapper{
+    padding:2px;
+  }
+
+  .logo-img{
+    height:26px;
+  }
+
+  /* ===== NAV ===== */
+
+  .site-nav{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:6px 10px;
+
+    width:100%;
+  }
+
+  .site-nav a{
+    font-size:8px;
+
+    letter-spacing:0.04em;
+
+    line-height:1.2;
+  }
+
+  /* ===== HERO ===== */
+
+  main{
+    padding-top:96px;
+  }
+
+  .hero-section{
+    padding:
+      30px
+      14px
+      50px;
+
+    gap:12px;
+  }
+
+  /* ===== TITLE ===== */
+
+  .page-title{
+    font-size:24px;
+
+    line-height:1.05;
+
+    letter-spacing:0.06em;
+
+    width:100%;
+
+    text-align:center;
+  }
+
+  /* ===== DIVIDER ===== */
+
+  .divider svg{
+    width:120px;
+  }
+
+  /* ===== SUB ===== */
+
+  .hero-sub{
+    font-size:7px;
+
+    letter-spacing:0.14em;
+  }
+
+  /* ===== INTRO ===== */
+
+  .intro-luxe{
+    font-size:11px;
+
+    line-height:1.7;
+
+    padding:0 4px;
+
+    max-width:100%;
+  }
+
+  /* ===== CARD ===== */
+
+  .text-block{
+    padding:
+      18px
+      14px;
+
+    border-radius:18px;
+
+    margin-top:10px;
+  }
+
+  /* ===== CTA ===== */
+
+  .cta{
+    margin-top:18px;
+  }
+
+  .cta-button{
+    width:100%;
+
+    max-width:220px;
+
+    min-height:42px;
+
+    font-size:8px;
+
+    letter-spacing:0.08em;
+
+    padding:
+      12px
+      14px;
+  }
+
+}
