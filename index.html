@@ -90,8 +90,38 @@ HEADER
   padding:0 24px;
 }
 
+/* =========================
+LOGO
+========================= */
+
+.logo-wrapper{
+  padding:8px;
+
+  border:1px solid rgba(122,95,52,0.35);
+
+  border-radius:4px;
+
+  background:rgba(255,255,255,0.18);
+
+  transition:
+    border-color .35s ease,
+    box-shadow .35s ease,
+    transform .35s ease;
+}
+
+.logo-wrapper:hover{
+  border-color:rgba(184,137,46,0.65);
+
+  box-shadow:
+    0 0 18px rgba(184,137,46,0.10);
+
+  transform:translateY(-1px);
+}
+
 .logo-img{
   height:78px;
+
+  display:block;
 
   transition:
     transform .45s ease,
@@ -99,8 +129,8 @@ HEADER
 }
 
 .logo-img:hover{
-  transform:scale(1.03);
-  opacity:.92;
+  transform:scale(1.02);
+  opacity:.94;
 }
 
 /* =========================
@@ -276,18 +306,21 @@ TEXT BLOCK
 .cta-text{
   position:relative;
 
-  margin-top:42px;
+  margin-top:38px;
 
-  max-width:620px;
+  width:fit-content;
+  max-width:1100px;
 
   padding:
     28px
-    34px;
+    42px;
 
   font-size:18px;
   line-height:2;
 
   color:#5a534b;
+
+  white-space:nowrap;
 
   background:
     linear-gradient(
@@ -297,7 +330,7 @@ TEXT BLOCK
     );
 
   border:
-    1px solid rgba(184,137,46,0.10);
+    1px solid rgba(184,137,46,0.14);
 
   border-radius:20px;
 
@@ -307,8 +340,14 @@ TEXT BLOCK
     0 10px 35px rgba(0,0,0,0.04),
     0 0 24px rgba(212,175,55,0.08);
 
-  animation:fadeUp 1.8s ease;
+  overflow:hidden;
+
+  animation:
+    fadeUp 1.8s ease,
+    glowFloat 5s ease-in-out infinite;
 }
+
+/* LIGNE LUMIÈRE */
 
 .cta-text::before{
   content:"";
@@ -316,20 +355,40 @@ TEXT BLOCK
   position:absolute;
 
   top:0;
-  left:50%;
+  left:-40%;
 
-  transform:translateX(-50%);
-
-  width:120px;
-  height:1px;
+  width:35%;
+  height:100%;
 
   background:
     linear-gradient(
       90deg,
       transparent,
-      rgba(184,137,46,0.8),
+      rgba(255,255,255,0.75),
       transparent
     );
+
+  transform:skewX(-22deg);
+
+  animation:shine 4.5s ease-in-out infinite;
+}
+
+/* GLOW DOUX */
+
+.cta-text::after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  border-radius:20px;
+
+  box-shadow:
+    0 0 26px rgba(212,175,55,0.10);
+
+  opacity:.8;
+
+  pointer-events:none;
 }
 
 /* =========================
@@ -383,7 +442,7 @@ BUTTON
 }
 
 /* =========================
-ANIMATION
+ANIMATIONS
 ========================= */
 
 @keyframes fadeUp{
@@ -396,6 +455,43 @@ ANIMATION
   to{
     opacity:1;
     transform:translateY(0);
+  }
+
+}
+
+@keyframes shine{
+
+  0%{
+    left:-45%;
+  }
+
+  100%{
+    left:140%;
+  }
+
+}
+
+@keyframes glowFloat{
+
+  0%{
+    transform:translateY(0px);
+    box-shadow:
+      0 10px 35px rgba(0,0,0,0.04),
+      0 0 20px rgba(212,175,55,0.08);
+  }
+
+  50%{
+    transform:translateY(-2px);
+    box-shadow:
+      0 16px 42px rgba(0,0,0,0.06),
+      0 0 34px rgba(212,175,55,0.16);
+  }
+
+  100%{
+    transform:translateY(0px);
+    box-shadow:
+      0 10px 35px rgba(0,0,0,0.04),
+      0 0 20px rgba(212,175,55,0.08);
   }
 
 }
@@ -454,7 +550,10 @@ MOBILE
   }
 
   .cta-text{
+    width:100%;
     max-width:100%;
+
+    white-space:normal;
 
     padding:
       22px
@@ -490,7 +589,7 @@ MOBILE
 
   <div class="container">
 
-    <a href="/index.html">
+    <a href="/index.html" class="logo-wrapper">
       <img src="/logo.png" class="logo-img" alt="L'INTERVALLE">
     </a>
 
