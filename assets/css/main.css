@@ -381,6 +381,7 @@ main{
   gap:18px;
 }
 
+/* ===== ICÔNES CLIQUABLES ===== */
 .contact-circle{
   width:96px;
   height:96px;
@@ -400,6 +401,10 @@ main{
     transform .35s ease,
     box-shadow .35s ease,
     border-color .35s ease;
+
+  text-decoration:none;
+
+  cursor:pointer;
 }
 
 .contact-circle:hover{
@@ -419,6 +424,8 @@ main{
   stroke-width:1.6;
 
   fill:none;
+
+  pointer-events:none;
 }
 
 .contact-item a{
