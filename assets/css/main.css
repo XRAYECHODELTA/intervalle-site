@@ -787,3 +787,63 @@ footer{
   }
 
 }
+/* ======================================= */
+/* ===== MOBILE CLEAN PREMIUM NAV ======== */
+/* ======================================= */
+
+@media screen and (max-width:768px){
+
+  .site-nav{
+    display:none;
+  }
+
+  .site-header{
+    padding:14px 0;
+  }
+
+  .container{
+    justify-content:center;
+  }
+
+  .logo-img{
+    height:34px;
+  }
+
+  main{
+    padding-top:88px;
+  }
+
+  .hero-section{
+    justify-content:flex-start;
+
+    padding:
+      46px
+      18px
+      60px;
+  }
+
+  .page-title{
+    font-size:26px;
+
+    line-height:1.1;
+
+    letter-spacing:0.08em;
+  }
+
+  .hero-sub{
+    font-size:8px;
+
+    letter-spacing:0.18em;
+  }
+
+  .intro-luxe{
+    font-size:12px;
+
+    line-height:1.9;
+  }
+
+  .text-block{
+    margin-top:14px;
+  }
+
+}
