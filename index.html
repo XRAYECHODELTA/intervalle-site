@@ -347,8 +347,6 @@ TEXT BLOCK
     glowFloat 5s ease-in-out infinite;
 }
 
-/* LIGNE LUMIÈRE */
-
 .cta-text::before{
   content:"";
 
@@ -372,8 +370,6 @@ TEXT BLOCK
 
   animation:shine 4.5s ease-in-out infinite;
 }
-
-/* GLOW DOUX */
 
 .cta-text::after{
   content:"";
@@ -497,57 +493,138 @@ ANIMATIONS
 }
 
 /* =========================
-MOBILE
+MOBILE PREMIUM FIX
 ========================= */
 
 @media(max-width:768px){
 
+  body{
+    overflow-x:hidden;
+  }
+
   .site-header{
     height:auto;
-    padding:12px 0;
+
+    padding:
+      10px
+      0;
   }
 
   .container{
     flex-direction:column;
-    gap:10px;
-  }
 
-  .site-nav{
-    flex-wrap:wrap;
     justify-content:center;
+    align-items:center;
 
     gap:14px;
+
+    padding:
+      0
+      14px;
   }
 
-  .site-nav a{
-    font-size:11px;
+  /* =========================
+  LOGO
+  ========================= */
+
+  .logo-wrapper{
+    padding:6px;
   }
 
   .logo-img{
-    height:58px;
+    height:48px;
   }
+
+  /* =========================
+  NAV
+  ========================= */
+
+  .site-nav{
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+
+    gap:
+      10px
+      18px;
+  }
+
+  .site-nav a{
+    font-size:10px;
+
+    letter-spacing:0.10em;
+
+    line-height:1.4;
+  }
+
+  /* =========================
+  HERO
+  ========================= */
 
   .hero{
-    padding-top:170px;
+    min-height:auto;
+
+    padding:
+      220px
+      18px
+      70px;
   }
 
+  /* =========================
+  TITLE
+  ========================= */
+
   .title{
-    font-size:48px;
+    width:100%;
 
-    letter-spacing:0.14em;
+    font-size:clamp(28px,10vw,42px);
 
-    line-height:1.1;
+    letter-spacing:0.08em;
+
+    line-height:1.08;
+
+    text-align:center;
+
+    word-break:break-word;
+  }
+
+  /* =========================
+  AXIS
+  ========================= */
+
+  .axis{
+    gap:18px;
+
+    margin-top:18px;
   }
 
   .gold-line{
-    width:76px;
-    margin:0 12px;
+    width:54px;
+
+    margin:0 10px;
+  }
+
+  .gold-star{
+    width:18px;
+    height:18px;
   }
 
   .name{
-    font-size:13px;
-    letter-spacing:0.34em;
+    font-size:11px;
+
+    letter-spacing:0.24em;
+
+    line-height:1.6;
+
+    text-align:center;
   }
+
+  /* =========================
+  TEXT BLOCK
+  ========================= */
 
   .cta-text{
     width:100%;
@@ -555,27 +632,38 @@ MOBILE
 
     white-space:normal;
 
+    margin-top:28px;
+
     padding:
-      22px
-      20px;
+      24px
+      22px;
 
     font-size:15px;
+
     line-height:1.9;
 
-    margin-top:34px;
+    border-radius:28px;
   }
 
-  .cta-button{
-    margin-top:26px;
+  /* =========================
+  BUTTON
+  ========================= */
 
+  .cta-button{
     width:100%;
-    max-width:300px;
+    max-width:320px;
+
+    margin-top:24px;
+
+    padding:
+      16px
+      24px;
 
     font-size:11px;
 
-    padding:
-      15px
-      20px;
+    letter-spacing:0.12em;
+
+    text-align:center;
   }
 
 }
