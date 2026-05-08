@@ -1,285 +1,696 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entreprises — L’INTERVALLE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entreprises — L’INTERVALLE</title>
 
-  <style>
-    /* RESET STYLES */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
 
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      color: #1b1b1a;
-      background: radial-gradient(circle at 50% 42%, #f7f1e8 0%, #e7ded0 55%, #d3c6b5 100%);
-      animation: fadeInBackground 1.5s ease-in-out;
-    }
+/* =========================
+RESET
+========================= */
 
-    /* Animation de fond */
-    @keyframes fadeInBackground {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    /* HEADER */
-    .site-header {
-      height: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(18px);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    .container {
-      width: 100%;
-      max-width: 1040px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 24px;
-    }
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  color:#1b1b1a;
 
-    .logo-img {
-      height: 70px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
+  background:
+    radial-gradient(circle at 50% 35%, #f8f3ea 0%, #e9dfd1 48%, #d4c7b5 100%);
 
-    .logo-img:hover {
-      transform: scale(1.1);
-    }
+  overflow-x:hidden;
 
-    .site-nav {
-      display: flex;
-      gap: 36px;
-    }
+  position:relative;
 
-    .site-nav a {
-      text-decoration: none;
-      font-size: 12px;
-      color: #5c564f;
-      letter-spacing: 0.15em;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
+  animation:fadePage 1.2s ease;
+}
 
-    .site-nav a:hover {
-      color: #b8892e;
-      transform: translateY(-3px);
-    }
+body::before{
+  content:"";
 
-    /* PAGE */
-    .page {
-      padding-top: 120px;
-      max-width: 950px;
-      margin: auto;
-      text-align: center;
-      animation: fadeInContent 1.5s ease-out;
-    }
+  position:fixed;
+  inset:0;
 
-    @keyframes fadeInContent {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255,255,255,0.45), transparent 42%),
+    linear-gradient(to bottom, rgba(255,255,255,0.14), transparent);
 
-    /* HERO */
-    .hero-section {
-      margin-bottom: 40px;
-      text-align: center;
-      animation: fadeIn 1s ease-out;
-    }
+  pointer-events:none;
 
-    .page-title {
-      font-size: clamp(36px, 4vw, 48px);
-      letter-spacing: 0.14em;
-      margin-bottom: 16px;
-    }
+  z-index:-1;
+}
 
-    .hero-sub {
-      max-width: 500px;
-      margin: auto;
-      font-size: 17px;
-      line-height: 1.5;
-      color: #5c564f;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+/* =========================
+ANIMATIONS
+========================= */
 
-    /* SECTIONS */
-    .text-block {
-      margin: 30px 0;
-      opacity: 0;
-      animation: fadeInSection 1.5s ease-out forwards;
-    }
+@keyframes fadePage{
 
-    .text-block.large {
-      max-width: 800px;
-      margin: 50px auto;
-      font-size: 18px;
-    }
+  from{
+    opacity:0;
+  }
 
-    .highlight {
-      background-color: rgba(184, 137, 46, 0.1);
-      padding: 20px;
-      border-radius: 8px;
-    }
+  to{
+    opacity:1;
+  }
 
-    @keyframes fadeInSection {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+}
 
-    /* CTA */
-    .cta {
-      margin: 80px 0 40px;
-      text-align: center;
-      animation: fadeIn 1.5s ease-out;
-    }
+@keyframes fadeUp{
 
-    .cta h2 {
-      font-size: 22px;
-      color: #5c564f;
-      margin-bottom: 20px;
-    }
+  from{
+    opacity:0;
+    transform:translateY(24px);
+  }
 
-    .cta-button {
-      display: inline-block;
-      padding: 16px 36px;
-      border: 1px solid #b8892e;
-      color: #b8892e;
-      text-decoration: none;
-      letter-spacing: 0.14em;
-      font-size: 12px;
-      transition: all 0.35s ease;
-      transform: translateY(0);
-    }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 
-    .cta-button:hover {
-      background: #b8892e;
-      color: white;
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    }
+}
 
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        gap: 8px;
-      }
+@keyframes shine{
 
-      .site-nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-      }
+  0%{
+    left:-40%;
+  }
 
-      .logo-img {
-        height: 52px;
-      }
+  100%{
+    left:140%;
+  }
 
-      .page-title {
-        font-size: 28px;
-      }
+}
 
-      .hero-sub {
-        font-size: 15px;
-      }
+/* =========================
+HEADER
+========================= */
 
-      .text-block.large {
-        font-size: 15px;
-      }
-    }
-  </style>
+.site-header{
+  height:92px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  position:fixed;
+  top:0;
+  left:0;
+
+  width:100%;
+
+  background:rgba(255,255,255,0.68);
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border-bottom:1px solid rgba(184,137,46,0.08);
+
+  z-index:1000;
+}
+
+.container{
+  width:100%;
+  max-width:1180px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:0 24px;
+}
+
+/* =========================
+LOGO
+========================= */
+
+.logo-wrapper{
+  padding:8px;
+
+  border:1px solid rgba(122,95,52,0.35);
+
+  border-radius:4px;
+
+  background:rgba(255,255,255,0.18);
+
+  transition:
+    border-color .35s ease,
+    box-shadow .35s ease,
+    transform .35s ease;
+}
+
+.logo-wrapper:hover{
+  border-color:rgba(184,137,46,0.65);
+
+  box-shadow:
+    0 0 18px rgba(184,137,46,0.10);
+
+  transform:translateY(-1px);
+}
+
+.logo-img{
+  height:78px;
+
+  display:block;
+
+  transition:
+    transform .45s ease,
+    opacity .45s ease;
+}
+
+.logo-img:hover{
+  transform:scale(1.02);
+  opacity:.94;
+}
+
+/* =========================
+NAV
+========================= */
+
+.site-nav{
+  display:flex;
+  gap:36px;
+}
+
+.site-nav a{
+  position:relative;
+
+  text-decoration:none;
+
+  font-size:12px;
+  color:#5c564f;
+
+  letter-spacing:0.16em;
+
+  transition:
+    color .35s ease,
+    transform .35s ease;
+}
+
+.site-nav a::after{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  bottom:-8px;
+
+  width:0%;
+  height:1px;
+
+  background:#b8892e;
+
+  transition:width .35s ease;
+}
+
+.site-nav a:hover{
+  color:#b8892e;
+  transform:translateY(-1px);
+}
+
+.site-nav a:hover::after{
+  width:100%;
+}
+
+/* =========================
+PAGE
+========================= */
+
+.page{
+  max-width:1080px;
+
+  margin:auto;
+
+  padding:
+    145px
+    24px
+    90px;
+
+  text-align:center;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero-section{
+  margin-bottom:46px;
+
+  animation:fadeUp 1s ease;
+}
+
+.page-title{
+  font-size:clamp(42px,4vw,64px);
+
+  letter-spacing:0.16em;
+  font-weight:500;
+
+  color:#171717;
+
+  margin-bottom:26px;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* =========================
+DIVIDER
+========================= */
+
+.divider{
+  display:flex;
+  justify-content:center;
+
+  margin-bottom:34px;
+}
+
+.divider svg{
+  width:760px;
+  max-width:100%;
+}
+
+/* =========================
+HERO SUB
+========================= */
+
+.hero-sub{
+  position:relative;
+
+  width:fit-content;
+  max-width:1000px;
+
+  margin:auto;
+
+  padding:
+    22px
+    34px;
+
+  font-size:18px;
+  line-height:1.9;
+
+  color:#5a534b;
+
+  white-space:nowrap;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.40),
+      rgba(255,255,255,0.16)
+    );
+
+  border:
+    1px solid rgba(184,137,46,0.10);
+
+  border-radius:22px;
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.04),
+    0 0 24px rgba(212,175,55,0.08);
+
+  overflow:hidden;
+
+  animation:fadeUp 1.3s ease;
+}
+
+.hero-sub::before{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:-40%;
+
+  width:30%;
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.75),
+      transparent
+    );
+
+  transform:skewX(-22deg);
+
+  animation:shine 5s ease-in-out infinite;
+}
+
+/* =========================
+TEXT BLOCKS
+========================= */
+
+.text-block{
+  position:relative;
+
+  max-width:900px;
+
+  margin:
+    34px auto;
+
+  padding:
+    36px
+    40px;
+
+  border-radius:28px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.26),
+      rgba(255,255,255,0.12)
+    );
+
+  border:
+    1px solid rgba(184,137,46,0.08);
+
+  box-shadow:
+    0 10px 26px rgba(0,0,0,0.03);
+
+  transition:
+    transform .45s ease,
+    border-color .45s ease,
+    box-shadow .45s ease;
+
+  animation:fadeUp 1.4s ease;
+}
+
+.text-block:hover{
+  transform:translateY(-4px);
+
+  border-color:rgba(184,137,46,0.18);
+
+  box-shadow:
+    0 16px 34px rgba(0,0,0,0.05),
+    0 0 24px rgba(212,175,55,0.08);
+}
+
+.text-block p{
+  font-size:18px;
+  line-height:2.1;
+
+  color:#4f4942;
+}
+
+.text-block p + p{
+  margin-top:22px;
+}
+
+/* =========================
+HIGHLIGHT BLOCK
+========================= */
+
+.highlight{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(184,137,46,0.10),
+      rgba(255,255,255,0.18)
+    );
+
+  border:
+    1px solid rgba(184,137,46,0.16);
+
+  overflow:hidden;
+}
+
+.highlight::before{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:-40%;
+
+  width:30%;
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.55),
+      transparent
+    );
+
+  transform:skewX(-22deg);
+
+  animation:shine 7s ease-in-out infinite;
+}
+
+/* =========================
+CTA
+========================= */
+
+.cta{
+  margin-top:64px;
+
+  animation:fadeUp 1.6s ease;
+}
+
+.cta h2{
+  font-size:38px;
+
+  font-weight:500;
+
+  letter-spacing:0.03em;
+
+  color:#4f4942;
+
+  margin-bottom:26px;
+}
+
+.cta-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:
+    16px
+    40px;
+
+  border:1px solid rgba(184,137,46,0.75);
+
+  color:#b8892e;
+
+  background:
+    rgba(255,255,255,0.30);
+
+  text-decoration:none;
+
+  letter-spacing:0.16em;
+  font-size:12px;
+
+  border-radius:999px;
+
+  transition:
+    background .35s ease,
+    color .35s ease,
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.cta-button:hover{
+  background:#b8892e;
+  color:white;
+
+  transform:
+    translateY(-3px)
+    scale(1.02);
+
+  box-shadow:
+    0 12px 26px rgba(184,137,46,0.22);
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  .site-header{
+    height:auto;
+    padding:12px 0;
+  }
+
+  .container{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .site-nav{
+    flex-wrap:wrap;
+    justify-content:center;
+
+    gap:14px;
+  }
+
+  .site-nav a{
+    font-size:11px;
+  }
+
+  .logo-img{
+    height:58px;
+  }
+
+  .page{
+    padding-top:170px;
+  }
+
+  .page-title{
+    font-size:34px;
+
+    letter-spacing:0.10em;
+  }
+
+  .hero-sub{
+    width:100%;
+
+    white-space:normal;
+
+    padding:
+      20px
+      18px;
+
+    font-size:15px;
+
+    line-height:1.9;
+  }
+
+  .text-block{
+    padding:
+      28px
+      20px;
+  }
+
+  .text-block p{
+    font-size:15px;
+
+    line-height:2;
+  }
+
+  .cta h2{
+    font-size:28px;
+
+    line-height:1.3;
+  }
+
+  .cta-button{
+    width:100%;
+    max-width:300px;
+
+    font-size:11px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <header class="site-header">
-    <div class="container">
-      <a href="/index.html"><img src="/logo.png" class="logo-img" alt="L’INTERVALLE"></a>
-      <nav class="site-nav">
-        <a href="/pages/accompagnement.html">Accompagnement</a>
-        <a href="/pages/entreprises.html">Entreprises</a>
-        <a href="/pages/distance.html">À distance</a>
-        <a href="/pages/histoire.html">L’INTERVALLE</a>
-        <a href="/pages/contact.html">Contact</a>
-      </nav>
+<header class="site-header">
+
+  <div class="container">
+
+    <a href="/index.html" class="logo-wrapper">
+      <img src="/logo.png" class="logo-img" alt="L’INTERVALLE">
+    </a>
+
+    <nav class="site-nav">
+      <a href="/pages/accompagnement.html">Accompagnement</a>
+      <a href="/pages/entreprises.html">Entreprises</a>
+      <a href="/pages/distance.html">À distance</a>
+      <a href="/pages/histoire.html">L’INTERVALLE</a>
+      <a href="/pages/contact.html">Contact</a>
+    </nav>
+
+  </div>
+
+</header>
+
+<main class="page">
+
+  <section class="hero-section">
+
+    <h1 class="page-title">
+      Entreprises
+    </h1>
+
+    <div class="divider">
+
+      <svg viewBox="0 0 320 34">
+
+        <line x1="20" y1="17" x2="140" y2="17" stroke="#b8892e"/>
+
+        <line x1="180" y1="17" x2="300" y2="17" stroke="#b8892e"/>
+
+        <line x1="160" y1="10" x2="160" y2="24" stroke="#b8892e"/>
+
+        <line x1="152" y1="17" x2="168" y2="17" stroke="#b8892e"/>
+
+        <circle cx="160" cy="17" r="1.5" fill="#e2c98f"/>
+
+      </svg>
+
     </div>
-  </header>
 
-  <main class="page">
-    <section class="hero-section">
-      <h1 class="page-title">Entreprises</h1>
+    <p class="hero-sub">
+      Un espace de régulation, de clarté et de d'échange dédié à vos collaborateurs et à votre entreprise.
+    </p>
 
-      <div class="divider">
-        <svg viewBox="0 0 320 34">
-          <line x1="20" y1="17" x2="140" y2="17" stroke="#b8892e"/>
-          <line x1="180" y1="17" x2="300" y2="17" stroke="#b8892e"/>
-          <line x1="160" y1="10" x2="160" y2="24" stroke="#b8892e"/>
-          <line x1="152" y1="17" x2="168" y2="17" stroke="#b8892e"/>
-          <circle cx="160" cy="17" r="1.5" fill="#e2c98f"/>
-        </svg>
-      </div>
+  </section>
 
-      <p class="hero-sub">
-        Un espace de régulation, de clarté et de d'échange dédié à vos collaborateurs et à votre entreprise.
-      </p>
-    </section>
+  <section class="text-block">
 
-    <section class="text-block large">
-      <p>
-        L’INTERVALLE accompagne les entreprises qui cherchent à optimiser leur culture organisationnelle, en apportant une approche sur-mesure pour améliorer les relations internes et favoriser la productivité tout en préservant l’équilibre des équipes.
-      </p>
+    <p>
+      L’INTERVALLE accompagne les entreprises qui cherchent à optimiser leur culture organisationnelle, en apportant une approche sur-mesure pour améliorer les relations internes et favoriser la productivité tout en préservant l’équilibre des équipes.
+    </p>
 
-      <p>
-        Nos interventions permettent de remettre de la fluidité dans les processus de décision et de communication, afin de lever les obstacles invisibles qui freinent la performance.
-      </p>
-    </section>
+    <p>
+      Nos interventions permettent de remettre de la fluidité dans les processus de décision et de communication, afin de lever les obstacles invisibles qui freinent la performance.
+    </p>
 
-    <section class="text-block large highlight">
-      <p>
-        Nous créons des espaces où les équipes peuvent ralentir et se recentrer, permettant à chacun d'explorer de nouvelles façons de travailler ensemble en toute harmonie.
-      </p>
+  </section>
 
-      <p>
-        Que ce soit dans des phases de transition ou des moments de tension, notre approche adaptable répond aux défis spécifiques de chaque organisation.
-      </p>
-    </section>
+  <section class="text-block highlight">
 
-    <section class="cta">
-      <h2>Échanger autour de votre situation</h2>
-      <a href="mailto:contact@intervalle.fr" class="cta-button">
-        Prendre contact
-      </a>
-    </section>
-  </main>
+    <p>
+      Nous créons des espaces où les équipes peuvent ralentir et se recentrer, permettant à chacun d'explorer de nouvelles façons de travailler ensemble en toute harmonie.
+    </p>
+
+    <p>
+      Que ce soit dans des phases de transition ou des moments de tension, notre approche adaptable répond aux défis spécifiques de chaque organisation.
+    </p>
+
+  </section>
+
+  <section class="cta">
+
+    <h2>
+      Échanger autour de votre situation
+    </h2>
+
+    <a href="mailto:contact@intervalle.fr" class="cta-button">
+      Prendre contact
+    </a>
+
+  </section>
+
+</main>
 
 </body>
 </html>
